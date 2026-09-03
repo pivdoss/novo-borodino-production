@@ -9,6 +9,7 @@ FILES = [
     *sorted((ROOT / "territory").glob("territory-slide-*.png")),
     *sorted((ROOT / "actual-gallery").glob("actual-*.jpg")),
     ROOT / "actual-gallery" / "actual-05.webp",
+    *sorted((ROOT / "renders").glob("*.png")),
 ]
 
 for source in FILES:

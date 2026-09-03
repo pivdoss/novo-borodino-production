@@ -119,6 +119,17 @@ export const landingMarkup = () => `
       </div>
     </section>
 
+    <section class="lot-section lot-render-conveyor" id="visualizations" aria-labelledby="visualizations-title">
+      <div class="lot-container">
+        <div class="lot-heading lot-heading--light"><div><p class="lot-kicker lot-kicker--light">05 — возможный сценарий</p><h2 id="visualizations-title">Как может выглядеть<br><em>этот актив.</em></h2></div><p>Каркасные визуализации показывают один из возможных сценариев развития территории. Это концепция для обсуждения, а не обещание готовой застройки.</p></div>
+        <div class="render-conveyor" data-render-conveyor tabindex="0" aria-label="Каркасные визуализации возможного развития территории">
+          <div class="render-conveyor__track" data-render-track>
+            ${['1','2','3','4','5','6','7','8','9','10','11','12','12-2','13','14'].map((name) => { const label = name === '12-2' ? '12 (2)' : name; return `<figure><img src="/images/renders/${name}.png" alt="Каркасная визуализация сценария развития территории — кадр ${label}" loading="lazy" width="1920" height="1080"><figcaption>Возможный сценарий · кадр ${label}</figcaption></figure>`; }).join('')}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="lot-section lot-section--paper" id="actual" aria-labelledby="actual-title">
       <div class="lot-container">
         <div class="lot-heading"><div><p class="lot-kicker">05 — территория сегодня</p><h2 id="actual-title">Территория<br><em>в деталях.</em></h2></div><p>Подъезд, внутренние дороги и окружающий ландшафт показаны на реальных фотографиях из материалов проекта.</p></div>

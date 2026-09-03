@@ -95,6 +95,22 @@ if (territorySlider && 'IntersectionObserver' in window) {
 }
 window.addEventListener('resize', () => { territoryLoopWidth = territoryTrack?.scrollWidth / 2 || 0; normalizeTerritory(); paintTerritory(); }, { passive: true });
 paintTerritory();
+// Render conveyor: seamless autoplay with pointer drag/swipe support.
+const renderSlider = document.querySelector('[data-render-conveyor]');
+const renderTrack = renderSlider?.querySelector('[data-render-track]');
+const renderOriginal = [...(renderTrack?.querySelectorAll('figure') || [])];
+let renderOffset = 0; let renderLoopWidth = 0; let renderFrame; let renderLast = 0; let renderDrag;
+const normalizeRender = () => { if (renderLoopWidth) { renderOffset %= renderLoopWidth; if (renderOffset > 0) renderOffset -= renderLoopWidth; } };
+const paintRender = () => { if (renderTrack) renderTrack.style.transform = `translate3d(${renderOffset}px,0,0)`; };
+const startRender = () => { if (renderFrame || renderOriginal.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; renderLoopWidth = renderTrack.scrollWidth / 2; const tick = (time) => { if (!renderLast) renderLast = time; const dt = Math.min(time - renderLast, 50); renderLast = time; if (!renderDrag) { renderOffset -= dt * .06; normalizeRender(); paintRender(); } renderFrame = requestAnimationFrame(tick); }; renderFrame = requestAnimationFrame(tick); };
+const stopRender = () => { if (renderFrame) cancelAnimationFrame(renderFrame); renderFrame = undefined; renderLast = 0; };
+if (renderTrack && renderOriginal.length > 1) renderTrack.append(...renderOriginal.map((slide) => { const clone = slide.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); return clone; }));
+renderSlider?.addEventListener('pointerdown', (event) => { if (!event.isPrimary) return; renderDrag = { id:event.pointerId, x:event.clientX, start:renderOffset, horizontal:false }; renderSlider.setPointerCapture?.(event.pointerId); renderSlider.classList.add('is-dragging'); stopRender(); });
+renderSlider?.addEventListener('pointermove', (event) => { if (!renderDrag || event.pointerId !== renderDrag.id) return; const dx = event.clientX - renderDrag.x; if (!renderDrag.horizontal && Math.abs(dx) > 8) renderDrag.horizontal = true; if (renderDrag.horizontal) { event.preventDefault(); renderOffset = renderDrag.start + dx; normalizeRender(); paintRender(); } });
+const finishRender = (event) => { if (!renderDrag || event.pointerId !== renderDrag.id) return; renderDrag = undefined; renderSlider.classList.remove('is-dragging'); startRender(); };
+renderSlider?.addEventListener('pointerup', finishRender); renderSlider?.addEventListener('pointercancel', finishRender);
+if (renderSlider && 'IntersectionObserver' in window) new IntersectionObserver(([entry]) => entry.isIntersecting ? startRender() : stopRender(), { threshold:.2 }).observe(renderSlider);
+window.addEventListener('resize', () => { renderLoopWidth = renderTrack?.scrollWidth / 2 || 0; normalizeRender(); paintRender(); }, { passive:true }); paintRender();
 spatial?.querySelector('[data-spatial-lightbox]')?.addEventListener('click', () => {
   const image = activeSpatialLayer?.dataset.spatialLayer === 'aerial' ? (territorySlides[territoryIndex] || activeSpatialLayer.querySelector('img')) : activeSpatialLayer?.querySelector('img');
   if (!image || !dialog || !dialogImage) return;
