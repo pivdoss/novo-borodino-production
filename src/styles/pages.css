@@ -1,0 +1,241 @@
+.header--page { color:var(--ink); background:rgba(248,246,240,.97); box-shadow:0 1px 0 rgba(23,55,43,.1); backdrop-filter:blur(10px); }
+.nav a[aria-current='page'] { opacity:1; text-decoration:underline; text-decoration-color:var(--moss); text-underline-offset:7px; }
+.breadcrumbs { display:flex; align-items:center; flex-wrap:wrap; gap:9px; padding-top:112px; color:var(--muted); font-size:11px; }
+.breadcrumbs a { text-decoration:none; }
+.breadcrumbs a:hover { color:var(--ink); }
+.breadcrumbs i { opacity:.45; font-style:normal; }
+.page-hero { padding:45px 0 80px; }
+.page-hero__grid { display:grid; grid-template-columns:minmax(460px,1fr) minmax(0,1.05fr); min-height:600px; background:#fff; border:1px solid var(--line); }
+.page-hero__copy { display:flex; flex-direction:column; justify-content:center; min-width:0; padding:54px; }
+.page-hero__copy h1,.seo-home-hero h1,.seo-error h1 { margin:0; font-family:'Playfair Display',Georgia,serif; font-size:clamp(48px,4.6vw,68px); font-weight:500; line-height:.95; letter-spacing:-.055em; overflow-wrap:normal; }
+.page-hero__copy>p:not(.section-kicker) { margin:25px 0; color:var(--muted); font-size:16px; line-height:1.7; }
+.page-hero__copy>.button { align-self:flex-start; margin-top:24px; }
+.page-hero__visual { min-width:0; margin:0; background:var(--paper-dark); overflow:hidden; }
+.page-hero__visual img { width:100%; height:100%; min-height:600px; object-fit:cover; }
+.page-hero__visual--contain { display:grid; place-items:center; }
+.page-hero__visual--contain img { min-height:0; object-fit:contain; }
+.seo-facts { display:grid; grid-template-columns:1fr 1fr; margin:5px 0 0; border-top:1px solid var(--line); }
+.seo-facts div { min-width:0; padding:15px 12px 15px 0; border-bottom:1px solid var(--line); }
+.seo-facts div:nth-child(even) { padding-left:16px; border-left:1px solid var(--line); }
+.seo-facts dt { color:var(--muted); font-size:9px; line-height:1.35; }
+.seo-facts dd { margin:6px 0 0; font-size:12px; font-weight:700; line-height:1.4; overflow-wrap:anywhere; }
+.seo-content-section { overflow:hidden; }
+.seo-section-heading { display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:end; margin-bottom:42px; padding-bottom:24px; border-bottom:1px solid var(--line); }
+.seo-section-heading .section-kicker,.seo-two-columns .section-kicker { display:none; }
+.seo-section-heading h2,.seo-two-columns h2,.seo-cta h2,.seo-plan-grid h2 { margin:0; font-family:'Playfair Display',Georgia,serif; font-size:clamp(40px,4.7vw,64px); font-weight:500; line-height:1; letter-spacing:-.05em; }
+.seo-section-heading>p { max-width:440px; margin:0 0 4px auto; color:var(--muted); font-size:14px; line-height:1.65; }
+.seo-card-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.seo-card-grid--three { grid-template-columns:repeat(3,1fr); }
+.seo-offer-card { min-width:0; background:#fff; border:1px solid var(--line); }
+.seo-offer-card>img { width:100%; aspect-ratio:16 / 9; object-fit:contain; background:#e7e7e1; }
+.seo-offer-card>div { padding:29px; }
+.seo-offer-card h3 { margin:0; font-family:'Playfair Display',serif; font-size:34px; font-weight:500; line-height:1; letter-spacing:-.04em; }
+.seo-offer-card>div>p:not(.section-kicker) { margin:17px 0 22px; color:var(--muted); font-size:13px; line-height:1.65; }
+.seo-offer-card .button { width:100%; margin-top:22px; }
+.seo-offer-card--compact h3 { font-size:30px; }
+.seo-offer-card--compact>div { padding:23px; }
+
+/* Карточки двух проектов домов остаются симметричными при разной длине заголовка. */
+.seo-card-grid:not(.seo-card-grid--three) .seo-offer-card { display:flex; flex-direction:column; height:100%; }
+.seo-card-grid:not(.seo-card-grid--three) .seo-offer-card>div { display:flex; flex:1; flex-direction:column; }
+.seo-card-grid:not(.seo-card-grid--three) .seo-offer-card h3 { min-height:68px; }
+.seo-card-grid:not(.seo-card-grid--three) .seo-offer-card .seo-facts { margin-top:auto; }
+.seo-gallery { position:relative; color:#fff; background:var(--ink-deep); }
+.seo-gallery__track { display:flex; gap:1px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--accent) var(--ink-deep); }
+.seo-gallery figure { position:relative; flex:0 0 100%; min-width:0; margin:0; scroll-snap-align:start; background:#e7e7e1; }
+.seo-gallery figure img { width:100%; height:auto; aspect-ratio:16 / 9; object-fit:contain; }
+.seo-gallery figcaption { position:absolute; left:18px; top:18px; padding:10px 13px; background:rgba(12,33,25,.86); font-size:10px; font-weight:700; }
+.seo-gallery__arrow { position:absolute; z-index:2; top:50%; width:48px; height:48px; border:1px solid rgba(255,255,255,.55); border-radius:50%; color:#fff; background:rgba(12,33,25,.78); transform:translateY(-50%); }
+.seo-gallery__arrow--prev { left:16px; }
+.seo-gallery__arrow--next { right:16px; }
+.seo-table-wrap { max-width:100%; overflow:auto; border:1px solid var(--line); }
+.seo-table { width:100%; border-collapse:collapse; background:#fff; font-size:12px; }
+.seo-table thead { color:#fff; background:var(--ink); }
+.seo-table th,.seo-table td { padding:14px 16px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+.seo-table tbody tr:nth-child(even) { background:#f3f3ed; }
+.seo-table tbody tr:hover { background:#edf2e9; }
+.seo-source-note { max-width:760px; margin:18px 0 0; color:var(--muted); font-size:10px; line-height:1.6; }
+.seo-two-columns { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:end; }
+.seo-rich-copy { max-width:650px; }
+.seo-rich-copy p { margin:0 0 19px; color:var(--muted); font-size:16px; line-height:1.7; }
+.seo-checklist { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.seo-checklist li { position:relative; padding:18px 16px 18px 42px; border-bottom:1px solid var(--line); font-size:16px; line-height:1.55; }
+.seo-checklist li::before { content:'✓'; position:absolute; left:12px; top:18px; color:var(--moss); font-weight:700; }
+.seo-steps { display:grid; gap:1px; margin:0; padding:0; list-style:none; background:var(--line); border:1px solid var(--line); }
+.seo-steps li { display:grid; gap:8px; padding:23px; background:#fff; }
+.seo-steps b { font-family:'Playfair Display',serif; font-size:22px; font-weight:500; }
+.seo-steps span { color:var(--muted); font-size:13px; line-height:1.55; }
+.seo-cta { padding:75px 0; }
+.seo-cta__grid { display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:center; }
+.seo-cta .section-kicker { color:var(--accent); }
+.seo-cta h2 { max-width:700px; }
+.seo-cta p:not(.section-kicker) { color:rgba(255,255,255,.68); line-height:1.65; }
+.seo-cta__grid>div:last-child { display:flex; justify-content:flex-end; gap:12px; flex-wrap:wrap; }
+.seo-plan-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.seo-plan-grid article { padding:25px; background:#fff; border:1px solid var(--line); }
+.seo-plan-grid h2 { font-size:40px; }
+.seo-plan-grid article>p:not(.section-kicker) { min-height:46px; color:var(--muted); font-size:13px; line-height:1.6; }
+.seo-plan-image { display:grid; place-items:center; min-height:520px; margin-bottom:25px; padding:18px; background:#f0f0eb; }
+.seo-plan-image img { width:100%; height:500px; object-fit:contain; }
+.seo-location-map { margin:0; padding:22px; background:#fff; border:1px solid var(--line); }
+.seo-location-map iframe { display:block; width:100%; min-height:620px; border:0; background:#e7e7e1; }
+.seo-location-map figcaption { margin-top:14px; color:var(--muted); font-size:11px; }
+.seo-location-map .text-link { margin-top:16px; }
+.seo-home-hero { display:grid; align-items:end; min-height:780px; padding:145px 0 80px; color:#fff; background:linear-gradient(90deg,rgba(8,29,20,.86),rgba(8,29,20,.18)),url('/images/hero-aerial.webp') center/cover; }
+@media (max-width:700px) { .seo-home-hero { background-image:linear-gradient(90deg,rgba(8,29,20,.86),rgba(8,29,20,.18)),url('/images/hero-aerial-640.webp'); } }
+.seo-home-hero .section-kicker { color:var(--accent); }
+.seo-home-hero h1 { max-width:820px; font-size:clamp(64px,8vw,110px); }
+.seo-home-hero p:not(.section-kicker) { max-width:590px; margin:28px 0; color:rgba(255,255,255,.86); font-size:18px; line-height:1.65; }
+.seo-home-hero>div>div { display:flex; gap:12px; flex-wrap:wrap; }
+.seo-link-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.seo-link-grid>a { min-height:260px; padding:28px; color:#fff; background:var(--ink); text-decoration:none; transition:transform .2s,background .2s; }
+.seo-link-grid>a:hover { transform:translateY(-3px); background:#245141; }
+.seo-link-grid span { color:var(--accent); font-family:'DM Mono',monospace; font-size:11px; }
+.seo-link-grid h3 { margin:65px 0 12px; font-family:'Playfair Display',serif; font-size:34px; font-weight:500; line-height:1; }
+.seo-link-grid p { max-width:370px; margin:0; color:rgba(255,255,255,.7); font-size:13px; line-height:1.55; }
+.seo-error { min-height:70vh; display:grid; align-items:center; padding:160px 0 100px; }
+.seo-error p:not(.section-kicker) { margin:24px 0; color:var(--muted); }
+.seo-table__cta { display:inline-flex; align-items:center; min-height:38px; padding:0 12px; color:var(--ink); border:1px solid var(--ink); font-size:11px; font-weight:700; text-decoration:none; white-space:nowrap; transition:background .2s,color .2s; }
+.seo-table__cta:hover { color:#fff; background:var(--ink); }
+.seo-table__controls { display:flex; justify-content:center; margin-top:20px; }
+.seo-table__controls .button { min-width:min(100%, 330px); }
+
+/* Страница участков: преимущества территории и сценарий выбора. */
+.plots-readiness { background:#e9e8df; }
+.plots-readiness__header,.plots-journey__header { max-width:860px; margin-bottom:44px; }
+.plots-readiness__header h2,.plots-journey__header h2 { margin:0; font-family:'Playfair Display',Georgia,serif; font-size:clamp(46px,5.25vw,74px); font-weight:500; line-height:.96; letter-spacing:-.055em; }
+.plots-readiness__header p,.plots-journey__header p { max-width:610px; margin:25px 0 0; color:var(--muted); font-size:16px; line-height:1.65; }
+.plots-readiness__grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.plots-readiness__grid article { min-height:228px; padding:30px 28px 28px; background:rgba(255,255,255,.58); border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.plots-readiness__grid span,.plots-journey__steps>li>span { color:var(--moss); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.11em; }
+.plots-readiness__grid h3,.plots-journey__steps h3 { margin:38px 0 12px; font-family:'Playfair Display',Georgia,serif; font-size:29px; font-weight:500; line-height:1.02; letter-spacing:-.035em; }
+.plots-readiness__grid p { margin:0; color:var(--muted); font-size:13px; line-height:1.62; }
+.plots-readiness__footer { display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0 0; }
+.plots-readiness__footer p { max-width:620px; margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
+.plots-readiness__footer div { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:20px; }
+.plots-journey { background:#f8f6f0; }
+.plots-journey__steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:0; padding:0; list-style:none; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.plots-journey__steps li { display:grid; grid-template-columns:auto 1fr; gap:22px; min-height:156px; padding:25px 24px; background:#fff; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.plots-journey__steps h3 { margin:0 0 10px; font-size:27px; }
+.plots-journey__steps p { margin:0; color:var(--muted); font-size:13px; line-height:1.58; }
+
+@media (max-width:820px) {
+  .plots-readiness__header,.plots-journey__header { margin-bottom:30px; }
+  .plots-readiness__header p,.plots-journey__header p { margin:0; }
+  .plots-readiness__grid,.plots-journey__steps { grid-template-columns:1fr; }
+  .plots-readiness__grid article { min-height:0; padding:24px 22px; }
+  .plots-readiness__grid h3 { margin-top:24px; }
+  .plots-readiness__footer { display:grid; gap:20px; }
+  .plots-readiness__footer div { justify-content:flex-start; }
+}
+
+/* Единый редакционный стиль для вводов на внутренних страницах. */
+.seo-section-heading { grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr); gap:64px; align-items:center; margin-bottom:48px; padding:0 0 30px; border-top:1px solid var(--line); }
+.seo-section-heading h2,.seo-two-columns h2 { max-width:690px; font-size:clamp(42px,4.2vw,60px); }
+.seo-section-heading>p { max-width:480px; margin:0; padding-left:30px; border-left:1px solid var(--line); font-size:16px; }
+.seo-two-columns { grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); gap:64px; align-items:start; }
+.seo-two-columns>div:first-child { padding-top:4px; }
+
+/* Страница локации: окружение показано через реальные материалы, а не длинный текстовый блок. */
+.location-story { background:var(--paper-dark); }
+.location-story__header { max-width:900px; margin-bottom:48px; }
+.location-story__header h2 { margin:0; font-family:'Playfair Display',Georgia,serif; font-size:clamp(46px,5.2vw,74px); font-weight:500; line-height:.96; letter-spacing:-.055em; }
+.location-story__header p { max-width:610px; margin:25px 0 0; color:var(--muted); font-size:17px; line-height:1.65; }
+.location-story__grid { display:grid; grid-template-columns:minmax(260px,.6fr) minmax(0,1.4fr); gap:54px; align-items:start; }
+.location-story__copy { padding:28px; background:rgba(255,255,255,.52); border:1px solid var(--line); }
+.location-story__copy>p { margin:0; color:var(--muted); font-size:15px; line-height:1.68; }
+.location-story__copy dl { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:30px 0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.location-story__copy dl>div { padding:18px 14px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.location-story__copy dt { font-family:'Playfair Display',Georgia,serif; font-size:32px; font-weight:500; letter-spacing:-.04em; }
+.location-story__copy dd { margin:5px 0 0; color:var(--muted); font-size:11px; line-height:1.45; }
+.location-story__copy .location-story__note { padding-top:18px; border-top:1px solid var(--line); font-size:12px; }
+.location-story__photos { display:grid; grid-template-columns:1.3fr .7fr; gap:14px; }
+.location-story__photo { position:relative; min-height:370px; margin:0; overflow:hidden; background:#d9ddd8; }
+.location-story__photo--water { min-height:510px; }
+.location-story__photo img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+.location-story__photo--water img { object-position:center; }
+.location-story__photo:hover img { transform:scale(1.025); }
+.location-story__photo figcaption { position:absolute; left:16px; bottom:16px; padding:9px 11px; color:#fff; background:rgba(12,33,25,.82); font-size:11px; font-weight:700; }
+.location-gallery { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr); gap:14px; margin-top:14px; }
+.location-gallery__photo { position:relative; min-height:310px; margin:0; overflow:hidden; background:#d9ddd8; }
+.location-gallery__photo--wide { min-height:400px; }
+.location-gallery__photo img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+.location-gallery__photo:not(.location-gallery__photo--wide) img { object-position:center 35%; }
+.location-gallery__photo:hover img { transform:scale(1.025); }
+.location-gallery__photo figcaption { position:absolute; left:16px; bottom:16px; padding:9px 11px; color:#fff; background:rgba(12,33,25,.82); font-size:11px; font-weight:700; }
+.location-story__source { margin:18px 0 0; color:var(--muted); font-size:11px; line-height:1.55; }
+.location-story__source a { color:inherit; text-decoration-color:var(--accent); text-underline-offset:3px; }
+
+@media (max-width:820px) {
+  .seo-section-heading { grid-template-columns:1fr; gap:20px; margin-bottom:34px; padding-bottom:24px; }
+  .seo-section-heading>p { max-width:560px; padding:0; border-left:0; }
+  .seo-two-columns { gap:30px; }
+  .location-story__header { margin-bottom:30px; }
+  .location-story__grid { grid-template-columns:1fr; gap:18px; }
+  .location-story__photos { grid-template-columns:1fr; }
+  .location-story__photo,.location-story__photo--water { min-height:300px; }
+  .location-story__photo--water { min-height:360px; }
+  .location-gallery { grid-template-columns:1fr; }
+  .location-gallery__photo,.location-gallery__photo--wide { min-height:300px; }
+  .location-gallery__photo:not(.location-gallery__photo--wide) img { object-position:center 42%; }
+}
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+[id] { scroll-margin-top:100px; }
+
+@media (max-width:1050px) {
+  .page-hero__grid { grid-template-columns:1fr 1fr; }
+  .page-hero__copy { padding:38px; }
+  .seo-card-grid--three { grid-template-columns:1fr; }
+  .seo-offer-card--compact { display:grid; grid-template-columns:1.15fr .85fr; }
+  .seo-offer-card--compact>img { height:100%; aspect-ratio:auto; }
+}
+@media (max-width:820px) {
+  .page-hero__grid,.seo-card-grid,.seo-two-columns,.seo-cta__grid,.seo-plan-grid { grid-template-columns:1fr; }
+  .page-hero__visual { order:-1; }
+  .page-hero__visual img { min-height:0; max-height:520px; aspect-ratio:16 / 10; }
+  .seo-section-heading { grid-template-columns:1fr; gap:20px; }
+  .seo-section-heading>p { margin:0; }
+  .seo-two-columns,.seo-cta__grid { gap:34px; }
+  .seo-cta__grid>div:last-child { justify-content:flex-start; }
+  .seo-plan-image { min-height:400px; }
+  .seo-plan-image img { height:380px; }
+}
+@media (max-width:760px) {
+  .breadcrumbs { padding-top:94px; }
+  .page-hero { padding:28px 0 60px; }
+  .page-hero__copy { padding:28px 22px; }
+  .page-hero__copy h1,.seo-error h1 { font-size:45px; }
+  .seo-facts { grid-template-columns:1fr; }
+  .seo-facts div:nth-child(even) { padding-left:0; border-left:0; }
+  .seo-card-grid,.seo-link-grid { grid-template-columns:1fr; }
+  .seo-card-grid:not(.seo-card-grid--three) .seo-offer-card h3 { min-height:0; }
+  .seo-location-map { padding:12px; }
+  .seo-location-map iframe { min-height:420px; }
+  .seo-offer-card--compact { display:block; }
+  .seo-offer-card--compact>img { width:100%; height:auto; aspect-ratio:16 / 9; object-fit:contain; }
+  .seo-gallery__arrow { width:44px; height:44px; }
+  /* На телефоне таблица каталога становится списком карточек: сама страница не прокручивается по горизонтали. */
+  .seo-table-wrap { overflow:clip; border:0; background:transparent; }
+  .seo-table,.seo-table tbody,.seo-table tr { display:block; width:100%; }
+  .seo-table thead { display:none; }
+  .seo-table tbody { display:grid; gap:12px; }
+  .seo-table tr { padding:4px 0; background:#fff!important; border:1px solid var(--line); }
+  .seo-table th,.seo-table td { display:flex; align-items:center; justify-content:space-between; gap:16px; min-width:0; padding:10px 14px; border:0; white-space:normal; text-align:right; }
+  .seo-table th { padding-top:14px; color:var(--ink); font-family:'Playfair Display',Georgia,serif; font-size:24px; font-weight:500; text-align:left; }
+  .seo-table td { color:var(--ink); font-size:12px; font-weight:700; }
+  .seo-table td::before { flex:0 1 auto; color:var(--muted); font-size:10px; font-weight:500; text-align:left; }
+  .seo-table td:nth-of-type(1)::before { content:'Площадь'; }
+  .seo-table td:nth-of-type(2)::before { content:'Цена'; }
+  .seo-table td:nth-of-type(3)::before { content:'Правовой статус'; }
+  .seo-table td:nth-of-type(4)::before { content:'Обозначение по схеме'; }
+  .seo-table td:nth-of-type(5) { padding-top:4px; padding-bottom:14px; }
+  .seo-table td:nth-of-type(5)::before { display:none; }
+  .seo-table__cta { width:100%; min-height:42px; padding:0 12px; }
+  .seo-cta__grid>div:last-child { display:grid; }
+  .seo-plan-image { min-height:300px; padding:10px; }
+  .seo-plan-image img { height:290px; }
+  .seo-home-hero { min-height:700px; padding:125px 0 70px; }
+  .seo-home-hero h1 { font-size:54px; }
+  .seo-home-hero>div>div { display:grid; }
+  [id] { scroll-margin-top:78px; }
+}

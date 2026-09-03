@@ -1,0 +1,29 @@
+/* Shared navigation-link treatment for the editorial landing page. */
+.lot-text-link {
+  justify-content:space-between;
+  min-height:42px;
+  gap:22px;
+  padding:0 14px;
+  border:1px solid rgba(24,33,30,.28);
+  font-size:12px;
+  letter-spacing:.01em;
+  transition:color .2s ease,background-color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.lot-text-link > span[aria-hidden="true"] { color:var(--lot-accent); font-size:15px; transition:transform .2s ease; }
+.lot-text-link:hover,.lot-text-link:focus-visible { color:#fff; background:var(--lot-ink); border-color:var(--lot-ink); text-decoration:none; }
+.lot-text-link:hover > span[aria-hidden="true"],.lot-text-link:focus-visible > span[aria-hidden="true"] { transform:translate(2px,-2px); }
+.lot-text-link:focus-visible { outline:2px solid var(--lot-accent); outline-offset:3px; }
+.lot-text-link--light { color:#fff; border-color:rgba(255,255,255,.42); }
+.lot-text-link--light:hover,.lot-text-link--light:focus-visible { color:var(--lot-ink); background:#fff; border-color:#fff; }
+.lot-hero__secondary-action { display:inline-flex !important; align-items:center; align-self:stretch; min-height:52px; height:52px; margin:0 !important; box-sizing:border-box; }
+.lot-actions .lot-hero__cta-note { align-self:center; margin:0 0 0 2px; }
+.lot-hero__facts { grid-template-columns:repeat(4,max-content); }
+.lot-hero__owner-note { margin:10px 0 0; color:rgba(255,255,255,.7); font-size:11px; letter-spacing:.02em; }
+@media (max-width:760px) { .lot-hero__facts { grid-template-columns:1fr 1fr; } .lot-hero__owner-note { font-size:10px; } }
+.lot-concept__caption > div { width:100%; max-width:290px; gap:10px; justify-items:stretch; }
+.lot-concept__caption .lot-text-link { width:100%; margin-top:0; box-sizing:border-box; }
+.lot-facts-details .lot-text-link,.lot-materials .lot-text-link,.lot-location .lot-text-link { margin-top:0; }
+@media (max-width:760px) {
+  .lot-concept__caption > div { max-width:none; }
+  .lot-text-link { min-height:46px; }
+}

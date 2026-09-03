@@ -1,0 +1,495 @@
+{
+  "updatedAt": "2026-08-17",
+  "pricePerSotka": 100000,
+  "landUse": "СХ-2 · ВРИ 13.2",
+  "plots": [
+    {
+      "id": 57,
+      "areaSotka": 7.5,
+      "cadastralRef": null,
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 58,
+      "areaSotka": 7.5,
+      "cadastralRef": null,
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 59,
+      "areaSotka": 7.5,
+      "cadastralRef": null,
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 60,
+      "areaSotka": 7.5,
+      "cadastralRef": null,
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 61,
+      "areaSotka": 5,
+      "cadastralRef": "844",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 62,
+      "areaSotka": 5,
+      "cadastralRef": "845",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 63,
+      "areaSotka": 5,
+      "cadastralRef": "833",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 64,
+      "areaSotka": 5,
+      "cadastralRef": "834",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 65,
+      "areaSotka": 5,
+      "cadastralRef": "839",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 66,
+      "areaSotka": 5,
+      "cadastralRef": "840",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 67,
+      "areaSotka": 10,
+      "cadastralRef": "251",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 68,
+      "areaSotka": 10,
+      "cadastralRef": "252",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 69,
+      "areaSotka": 10,
+      "cadastralRef": "253",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 70,
+      "areaSotka": 10,
+      "cadastralRef": "254",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 71,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 72,
+      "areaSotka": 10,
+      "cadastralRef": "256",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 73,
+      "areaSotka": 10,
+      "cadastralRef": "257",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 74,
+      "areaSotka": 10,
+      "cadastralRef": "258",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 75,
+      "areaSotka": 10,
+      "cadastralRef": "206",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 76,
+      "areaSotka": 10,
+      "cadastralRef": "207",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 77,
+      "areaSotka": 10,
+      "cadastralRef": "222",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 78,
+      "areaSotka": 10,
+      "cadastralRef": "208",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 79,
+      "areaSotka": 10,
+      "cadastralRef": "209",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 80,
+      "areaSotka": 10,
+      "cadastralRef": "210",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 81,
+      "areaSotka": 10,
+      "cadastralRef": "211",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 82,
+      "areaSotka": 6.4,
+      "cadastralRef": "212",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 83,
+      "areaSotka": 7.8,
+      "cadastralRef": "213",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 84,
+      "areaSotka": 10,
+      "cadastralRef": "214",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 85,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 86,
+      "areaSotka": 10,
+      "cadastralRef": "221",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 87,
+      "areaSotka": 10,
+      "cadastralRef": "238",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 88,
+      "areaSotka": 10,
+      "cadastralRef": "239",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 89,
+      "areaSotka": 10,
+      "cadastralRef": "240",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 90,
+      "areaSotka": 10,
+      "cadastralRef": "241",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 91,
+      "areaSotka": 10,
+      "cadastralRef": "220",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 92,
+      "areaSotka": 10,
+      "cadastralRef": "242",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 93,
+      "areaSotka": 10,
+      "cadastralRef": "243",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 94,
+      "areaSotka": 10,
+      "cadastralRef": "244",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 95,
+      "areaSotka": 10,
+      "cadastralRef": "216",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 96,
+      "areaSotka": 10,
+      "cadastralRef": "245",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 97,
+      "areaSotka": 10,
+      "cadastralRef": "246",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 98,
+      "areaSotka": 11.3,
+      "cadastralRef": "217",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 99,
+      "areaSotka": 10,
+      "cadastralRef": "218",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 100,
+      "areaSotka": 9.2,
+      "cadastralRef": "219",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 101,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 102,
+      "areaSotka": 10,
+      "cadastralRef": "224",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 103,
+      "areaSotka": 10,
+      "cadastralRef": "225",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 104,
+      "areaSotka": 10,
+      "cadastralRef": "226",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 105,
+      "areaSotka": 10,
+      "cadastralRef": "227",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 106,
+      "areaSotka": 10,
+      "cadastralRef": "228",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 107,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 108,
+      "areaSotka": 10,
+      "cadastralRef": "230",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 109,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 110,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 111,
+      "areaSotka": 10,
+      "cadastralRef": "233",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 112,
+      "areaSotka": 10,
+      "cadastralRef": "234",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 113,
+      "areaSotka": 10,
+      "cadastralRef": "235",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 114,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 115,
+      "areaSotka": 10,
+      "cadastralRef": null,
+      "status": "sold",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 116,
+      "areaSotka": 10,
+      "cadastralRef": "259",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    },
+    {
+      "id": 117,
+      "areaSotka": 10,
+      "cadastralRef": "260",
+      "status": "available",
+      "pricePerSotka": 100000,
+      "landUse": "СХ-2 · ВРИ 13.2"
+    }
+  ]
+}

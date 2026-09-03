@@ -1,0 +1,29 @@
+# Пример для внешнего Nginx на production-сервере.
+# Замените replace_with_real_domain.ru, пути к сертификату и имя upstream-сервиса.
+# Этот файл не применяется локальным Docker-контуром автоматически.
+
+server {
+    listen 80;
+    server_name replace_with_real_domain.ru www.replace_with_real_domain.ru;
+    return 301 https://replace_with_real_domain.ru$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name replace_with_real_domain.ru www.replace_with_real_domain.ru;
+
+    ssl_certificate     /etc/letsencrypt/live/replace_with_real_domain.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/replace_with_real_domain.ru/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        # `web` — имя сервиса сайта из docker-compose.production.yml в одной Docker-сети.
+        proxy_pass http://web:80;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_http_version 1.1;
+    }
+}

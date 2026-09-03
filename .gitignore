@@ -1,0 +1,14 @@
+.env.local
+.env
+.env.*
+!.env.example
+runtime/
+dist/
+node_modules/
+.pnpm-store/
+.agents/
+.codex/
+.audit_tmp/
+Проверка интерфейса/
+*.log
+data/*.bak

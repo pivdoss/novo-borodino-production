@@ -1,0 +1,14 @@
+# Только для локальной проверки production-сборки на http://localhost:8080.
+# Не используйте этот файл на сервере: он намеренно публикует HTTP-порт для разработки.
+services:
+  production:
+    build:
+      context: .
+      target: production
+      args:
+        SITE_URL: http://localhost:8081
+        ALLOW_LOCAL_PRODUCTION_PREVIEW: "true"
+    ports:
+      - "8081:80"
+    depends_on:
+      - registry-api
