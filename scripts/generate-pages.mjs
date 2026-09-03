@@ -25,8 +25,8 @@ const documentMarkup = ({ title, description, route, body, robots = 'index,follo
   <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${absoluteUrl(route)}">
   <meta property="og:locale" content="ru_RU"><meta property="og:type" content="website"><meta property="og:site_name" content="Новое Бородино">
-  <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${absoluteUrl(route)}"><meta property="og:image" content="${absoluteUrl('/images/offers/invest-520-view-1.jpg')}"><meta property="og:image:alt" content="Территория земельного массива Новое Бородино"><meta property="og:image:type" content="image/jpeg">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${absoluteUrl('/images/offers/invest-520-view-1.jpg')}">
+  <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${absoluteUrl(route)}"><meta property="og:image" content="${absoluteUrl('/images/offers/invest-520-view-1.webp')}"><meta property="og:image:alt" content="Территория земельного массива Новое Бородино"><meta property="og:image:type" content="image/webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${absoluteUrl('/images/offers/invest-520-view-1.webp')}">
   ${schemas.map((schema) => `<script type="application/ld+json">${jsonLd(schema)}</script>`).join('')}
 </head><body><div id="app">${body}</div><script type="module" src="/src/main.js"></script></body></html>`;
 
