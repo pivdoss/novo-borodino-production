@@ -85,10 +85,7 @@ if (sitemapRoutes.some((route) => /[#?]|admin\.html|\/api\//i.test(route)) || (!
 const robots = await fs.readFile(path.join(buildRoot, 'robots.txt'), 'utf8').catch(() => '');
 if (!robots.includes('Sitemap: ' + productionOrigin + '/sitemap.xml')) errors.push('robots.txt does not contain the configured Sitemap URL');
 if (await exists(path.join(buildRoot, 'admin.html'))) errors.push('Устаревшая admin.html ошибочно попала в сборку');
-const adminPage = await fs.readFile(path.join(buildRoot, 'admin', 'index.html'), 'utf8').catch(() => '');
-if (!adminPage || !/name="robots"\s+content="[^"]*noindex[^"]*"/i.test(adminPage)) {
-  errors.push('Закрытая админка отсутствует в сборке или не закрыта от индексации');
-}
+if (await exists(path.join(buildRoot, 'admin'))) errors.push('Админка ошибочно попала в production-сборку');
 if (/\/(?:admin|api)\//i.test(sitemap)) errors.push('sitemap.xml содержит служебный адрес');
 
 const notFound = await fs.readFile(path.join(buildRoot, '404.html'), 'utf8').catch(() => '');

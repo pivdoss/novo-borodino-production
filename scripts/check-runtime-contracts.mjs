@@ -12,7 +12,7 @@ const checks = [
   [main.includes('initAnalyticsConsent'), 'analytics starts only through the consent module'],
   [landing.includes('contacts.whatsappUrl') && landing.includes('contacts.telegramUrl') && landing.includes('contacts.maxUrl'), 'landing exposes configured contact channels'],
   [!compose.includes('registry-api') && !compose.includes('lead-api'), 'compose has no registry or lead service'],
-  [!nginx.includes('registry-api:8787') && nginx.includes('mc.yandex.ru'), 'nginx has no API upstream and allows Yandex Metrika after consent'],
+  [nginx.includes('mc.yandex.ru') && nginx.includes('Content-Security-Policy'), 'nginx keeps security policy and analytics consent origins'],
 ];
 const failed = checks.filter(([ok]) => !ok).map(([, label]) => label);
 if (failed.length) { console.error(`Runtime contract check failed: ${failed.join('; ')}`); process.exit(1); }
