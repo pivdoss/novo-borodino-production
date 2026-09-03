@@ -27,9 +27,9 @@
 .render-conveyor { position:relative; width:100vw; min-height:min(760px,78svh); margin-left:calc(50% - 50vw); overflow:hidden; cursor:grab; touch-action:pan-y; }
 .render-conveyor.is-dragging { cursor:grabbing; }
 .render-conveyor__track { display:flex; width:max-content; gap:14px; will-change:transform; }
-.render-conveyor figure { position:relative; flex:0 0 clamp(420px,52vw,820px); aspect-ratio:16/10; margin:0; overflow:hidden; background:#101b17; }
-.render-conveyor img { display:block; width:100%; height:100%; object-fit:cover; }
-@media (max-width:760px) { .render-conveyor__track { gap:10px; }.render-conveyor figure { flex-basis:92vw; } }
+.render-conveyor figure { position:relative; flex:0 0 clamp(520px,64vw,980px); aspect-ratio:16/10; margin:0; overflow:hidden; background:#101b17; }
+.render-conveyor img { display:block; width:100%; height:100%; object-fit:cover; pointer-events:none; user-select:none; }
+@media (max-width:760px) { .render-conveyor__track { gap:10px; }.render-conveyor figure { flex-basis:96vw; } }
 .lot-concept__caption > div { width:100%; max-width:290px; gap:10px; justify-items:stretch; }
 .lot-concept__caption .lot-text-link { width:100%; margin-top:0; box-sizing:border-box; }
 .lot-facts-details .lot-text-link,.lot-materials .lot-text-link,.lot-location .lot-text-link { margin-top:0; }
