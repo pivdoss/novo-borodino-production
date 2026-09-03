@@ -13,9 +13,6 @@ services:
         VITE_METRIKA_ID: ${VITE_METRIKA_ID:-}
     environment:
       NODE_ENV: production
-    depends_on:
-      registry-api:
-        condition: service_started
     expose:
       - "80"
     read_only: true
@@ -42,42 +39,6 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-    networks:
-      - private
-
-  registry-api:
-    build:
-      context: .
-      target: api
-    env_file:
-      - ${PRODUCTION_ENV_FILE:-.env.production}
-    environment:
-      NODE_ENV: production
-      PORT: "8787"
-      SITE_ORIGIN: ${SITE_ORIGIN:?Set the real HTTPS SITE_ORIGIN in .env.production}
-      REGISTRY_DB_PATH: /app/data/registry.sqlite
-      PLOTS_SEED_PATH: /app/seed/plots.json
-    volumes:
-      - ${RUNTIME_ROOT:?Set RUNTIME_ROOT to a protected absolute server path}/registry:/app/data
-    expose:
-      - "8787"
-    read_only: true
-    tmpfs:
-      - /tmp
-    cap_drop:
-      - ALL
-    security_opt:
-      - no-new-privileges:true
-    restart: unless-stopped
-    mem_limit: 256m
-    cpus: "0.75"
-    pids_limit: 120
-    healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"]
-      interval: 30s
-      timeout: 8s
-      retries: 3
-      start_period: 15s
     networks:
       - private
 

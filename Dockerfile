@@ -22,17 +22,8 @@ ENV ALLOW_LOCAL_PRODUCTION_PREVIEW=${ALLOW_LOCAL_PRODUCTION_PREVIEW}
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-RUN pnpm run build && pnpm run check:seo && pnpm run check:registry-sync && pnpm run check:external-links && pnpm run check:mobile-safety && pnpm run check:runtime-contracts
+RUN pnpm run build && pnpm run check:seo && pnpm run check:external-links && pnpm run check:mobile-safety && pnpm run check:runtime-contracts
 
-FROM node:22-alpine AS api
-WORKDIR /app
-RUN addgroup -S -g 10001 app && adduser -S -D -H -u 10001 -G app app
-COPY --chown=app:app server ./server
-COPY --chown=app:app scripts/check-registry-sync.mjs ./scripts/check-registry-sync.mjs
-COPY --chown=app:app data/plots.json ./seed/plots.json
-USER app
-EXPOSE 8787
-CMD ["node", "server/registry-api.mjs"]
 
 # Stable Alpine 3.24 receives current security fixes; Dependabot tracks this tag.
 FROM nginx:stable-alpine3.24 AS production

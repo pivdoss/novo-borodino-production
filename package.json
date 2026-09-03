@@ -10,8 +10,6 @@
     "build": "pnpm run generate && vite build && pnpm run prune:production",
     "prune:production": "node scripts/prune-production-assets.mjs",
     "check:seo": "node scripts/check-seo.mjs",
-    "check:registry-sync": "node scripts/check-registry-sync.mjs",
-    "registry:export": "node scripts/export-registry-from-sqlite.mjs --write",
     "check:external-links": "node scripts/check-external-links.mjs",
     "check:mobile-safety": "node scripts/check-mobile-safety.mjs",
     "check:runtime-contracts": "node scripts/check-runtime-contracts.mjs",

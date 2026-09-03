@@ -63,5 +63,5 @@ await fs.writeFile(path.join(projectRoot, 'cookie-i-analitika', 'index.html'), d
 }));
 await fs.writeFile(path.join(projectRoot, '404.html'), notFound);
 await fs.writeFile(path.join(publicDirectory, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${publicRoutes.map((route) => `\n  <url><loc>${absoluteUrl(route)}</loc></url>`).join('')}\n</urlset>\n`);
-await fs.writeFile(path.join(publicDirectory, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: ${absoluteUrl('/sitemap.xml')}\n`);
+await fs.writeFile(path.join(publicDirectory, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl('/sitemap.xml')}\n`);
 console.log('Generated landing page, cookie page and SEO files.');

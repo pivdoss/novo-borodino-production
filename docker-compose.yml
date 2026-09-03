@@ -9,28 +9,4 @@ services:
       - "4173:4173"
     env_file:
       - .env.local
-    depends_on:
-      - registry-api
-    volumes:
-      - ./data:/app/data
     profiles: ["development"]
-
-  registry-api:
-    build:
-      context: .
-      target: api
-    env_file:
-      - .env.local
-    # Windows bind mounts do not preserve Linux UID 10001 permissions.
-    # This override is only for local development; docker-compose.production.yml runs the image as `app`.
-    user: "0:0"
-    environment:
-      PORT: "8787"
-      SITE_ORIGIN: "http://localhost:8081,http://localhost:4173"
-      NODE_ENV: "development"
-      REGISTRY_DB_PATH: "/app/data/registry.sqlite"
-      PLOTS_SEED_PATH: "/app/seed/plots.json"
-    volumes:
-      - ./runtime/registry:/app/data
-    expose:
-      - "8787"
