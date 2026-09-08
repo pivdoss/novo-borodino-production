@@ -73,8 +73,10 @@ const sitemapPath = path.join(buildRoot, 'sitemap.xml');
 const sitemap = await fs.readFile(sitemapPath, 'utf8').catch(() => '');
 const sitemapRoutes = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => {
   const url = new URL(match[1]);
-  if (url.origin !== productionOrigin) errors.push('sitemap.xml contains another domain: ' + match[1]);
-  return url.pathname;
+  const configured = new URL(productionOrigin + '/');
+  if (url.origin !== configured.origin || !url.pathname.startsWith(configured.pathname)) errors.push('sitemap.xml contains another domain: ' + match[1]);
+  const relative = '/' + url.pathname.slice(configured.pathname.length).replace(/^\/+/, '');
+  return relative === '/' ? '/' : relative;
 });
 if (JSON.stringify(sitemapRoutes) !== JSON.stringify(publicRoutes)) errors.push('sitemap.xml не совпадает со списком публичных страниц');
 if (sitemapRoutes.some((route) => /[#?]|admin\.html|\/api\//i.test(route)) || (!localProductionPreview && /localhost/i.test(sitemap))) {

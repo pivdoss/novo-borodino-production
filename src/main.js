@@ -2,6 +2,7 @@ import './styles/main.css';
 import './styles/lot-landing.css';
 import './styles/investment.css';
 import { initAnalyticsConsent, reachMetrikaGoal } from './analytics.js';
+import { contacts, withOfferMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const dialog = document.querySelector('[data-lightbox-dialog]');
@@ -175,16 +176,21 @@ initAnalyticsConsent();updateSticky();
 
 const contactChoice=document.querySelector('[data-contact-choice]');
 let choiceTrigger;
-document.querySelector('[data-contact-choice-open]')?.addEventListener('click',event=>{choiceTrigger=event.currentTarget;contactChoice.showModal();document.body.style.overflow='hidden';updateSticky();});
-contactChoice?.querySelector('button').addEventListener('click',()=>contactChoice.close());
+const contactRequests={
+  hero:'Здравствуйте! Интересуют документы и схема земельного массива 6,2 га в Новом Бородино.',
+  diligence:'Здравствуйте! Хочу получить пакет документов для проверки земельного массива 6,2 га.',
+  engineering:'Здравствуйте! Пришлите, пожалуйста, реестр участков и технические условия по массиву 6,2 га.',
+  materials:'Здравствуйте! Хочу получить документы и схему земельного массива 6,2 га.',
+  viewing:'Здравствуйте! Хочу обсудить просмотр земельного массива 6,2 га в Новом Бородино.'
+};
+document.querySelectorAll('[data-contact-choice-open]').forEach(trigger=>trigger.addEventListener('click',event=>{
+  choiceTrigger=event.currentTarget;
+  const message=contactRequests[choiceTrigger.dataset.contactContext]||contactRequests.materials;
+  const offer=message.replace(/^Здравствуйте!\s*/,'').replace(/[.!]$/,'');
+  contactChoice.querySelector('[data-choice-channel="whatsapp"]').href=withOfferMessage(contacts.whatsappUrl,offer);
+  contactChoice.querySelector('[data-choice-channel="telegram"]').href=withOfferMessage(contacts.telegramUrl,offer);
+  contactChoice.querySelector('[data-contact-choice-copy]').textContent=message;
+  contactChoice.showModal();document.body.style.overflow='hidden';updateSticky();
+}));
+contactChoice?.querySelector('[data-contact-choice-close]').addEventListener('click',()=>contactChoice.close());
 contactChoice?.addEventListener('close',()=>{document.body.style.overflow='';updateSticky();choiceTrigger?.focus();});
-
-// Campaign codes are visible in the draft; users decide whether to send them.
-const campaignQuery=new URLSearchParams(location.search);
-const campaignParts=['utm_source','utm_campaign','utm_content','utm_term'].flatMap(key=>{
-  const value=campaignQuery.get(key);return value && /^(?:[a-z][a-z0-9_-]{0,79}|[0-9]{1,9})$/i.test(value)?[`${key.replace('utm_','')}: ${value}`]:[];
-});
-if(campaignParts.length)document.querySelectorAll('a[data-contact-channel="whatsapp"],a[data-contact-channel="telegram"]').forEach(link=>{
-  const url=new URL(link.href);if(!['wa.me','t.me'].includes(url.hostname))return;
-  url.searchParams.set('text',`${url.searchParams.get('text')||'Здравствуйте! Интересует массив 6,2 га в Новом Бородино.'}\n[${campaignParts.join(' | ')}]`);link.href=url.href;
-});
