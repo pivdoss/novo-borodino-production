@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 const input = (file) => path.resolve(process.cwd(), file);
 
 export default defineConfig({
+  server: { watch: { ignored: ['**/.audit_tmp/**'] } },
   build: {
     rollupOptions: {
       input: {

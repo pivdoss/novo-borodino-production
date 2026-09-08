@@ -1,8 +1,9 @@
 import './styles/main.css';
 import './styles/lot-landing.css';
 import './styles/investment.css';
+import './styles/prerelease.css';
 import { initAnalyticsConsent, reachMetrikaGoal } from './analytics.js';
-import { contacts, withOfferMessage } from './data/contacts.js';
+import { contacts } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const dialog = document.querySelector('[data-lightbox-dialog]');
@@ -13,6 +14,7 @@ const openImage = (image, caption, trigger) => {
   const output = dialog.querySelector('[data-lightbox-image]');
   output.src = image.src;
   output.alt = image.alt;
+  resetZoom();
   dialog.querySelector('[data-lightbox-caption]').textContent = caption || image.alt;
   dialog.showModal();
   document.body.style.overflow = 'hidden';
@@ -20,7 +22,38 @@ const openImage = (image, caption, trigger) => {
 dialog?.querySelector('[data-lightbox-close]').addEventListener('click', () => dialog.close());
 dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 dialog?.addEventListener('close', () => { document.body.style.overflow = ''; restoreFocus?.focus({ preventScroll: true }); });
-document.querySelector('[data-concept-open]')?.addEventListener('click', event => openImage(document.querySelector('[data-concept-canvas] img'), 'Схема состава: 71 участок и 1 га внутренних дорог. Исходные подписи сверяйте с актуальными документами.', event.currentTarget));
+// Zoom remains inside the viewer; the inline scheme keeps normal page scrolling.
+const zoomImage=dialog?.querySelector('[data-lightbox-image]');
+const zoomFrame=document.createElement('div');
+zoomFrame.className='lightbox-scroll';
+if(zoomImage){zoomImage.before(zoomFrame);zoomFrame.append(zoomImage);}
+let zoom=1;
+const resetZoom=()=>{zoom=1;zoomFrame.classList.remove('is-zoomed');zoomFrame.scrollTo(0,0);};
+if(dialog){
+  const controls=document.createElement('div');
+  controls.className='zoom-controls';
+  controls.innerHTML='<button type="button" data-zoom="in" aria-label="Увеличить изображение">+</button><button type="button" data-zoom="out" aria-label="Уменьшить изображение">−</button><button type="button" data-zoom="reset">Вписать</button>';
+  dialog.append(controls);
+  controls.addEventListener('click',event=>{
+    const action=event.target.closest('[data-zoom]')?.dataset.zoom;
+    if(!action)return;
+    if(action==='reset'){resetZoom();return;}
+    const base=zoomImage.getBoundingClientRect().width/zoom;
+    zoom=Math.max(1,Math.min(4,zoom+(action==='in'?.5:-.5)));
+    zoomFrame.style.setProperty('--zoom-width',base*zoom+'px');
+    zoomFrame.classList.toggle('is-zoomed',zoom>1);
+  });
+  let pan;
+  zoomFrame.addEventListener('dragstart',event=>event.preventDefault());
+  zoomFrame.addEventListener('pointerdown',event=>{
+    if(zoom<=1 || event.pointerType!=='mouse' || event.button!==0)return;
+    pan={x:event.clientX,y:event.clientY,left:zoomFrame.scrollLeft,top:zoomFrame.scrollTop};
+    zoomFrame.setPointerCapture(event.pointerId);
+  });
+  zoomFrame.addEventListener('pointermove',event=>{if(pan){zoomFrame.scrollLeft=pan.left+pan.x-event.clientX;zoomFrame.scrollTop=pan.top+pan.y-event.clientY;}});
+  for(const name of ['pointerup','pointercancel','lostpointercapture'])zoomFrame.addEventListener(name,()=>{pan=undefined;});
+}
+document.querySelector('[data-concept-open]')?.addEventListener('click', event => openImage(document.querySelector('[data-concept-canvas] img'), '71 участок · 5,2 га + 1 га внутренних дорог.', event.currentTarget));
 
 const menuButton = document.querySelector('[data-lot-menu]');
 const menu = document.querySelector('#lot-mobile-menu');
@@ -156,9 +189,16 @@ let scrollScheduled=false;
 const updateSticky=()=>{
   scrollScheduled=false;if(!sticky)return;
   const progress=window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight);
-  const competing=[...document.querySelectorAll('.lot-button--accent,#contacts,.cookie-banner:not([hidden])')].some(el=>{const r=el.getBoundingClientRect();return r.top<innerHeight && r.bottom>88;});
+  const competing=[...document.querySelectorAll('main [data-contact-choice-open],#contacts,.cookie-banner:not([hidden])')].some(el=>{const r=el.getBoundingClientRect();return r.top<innerHeight && r.bottom>88;});
   const hidden=progress<.28 || competing || dialog?.open || document.querySelector('[data-contact-choice]')?.open || !!menu && !menu.hidden;
   sticky.hidden=hidden;
+  const nearLocation=document.querySelector('#location')?.getBoundingClientRect().top<innerHeight*.65;
+  const context=nearLocation?'viewing':'materials';
+  const label=nearLocation?'Обсудить просмотр':'Запросить материалы';
+  sticky.dataset.contactContext=context;
+  sticky.innerHTML=label+' <span aria-hidden="true">↗</span>';
+  const mobileAction=mobileBar?.querySelector('[data-contact-choice-open]');
+  if(mobileAction){mobileAction.dataset.contactContext=context;mobileAction.textContent=label;}
   if(mobileBar)mobileBar.hidden=hidden;
 };
 window.addEventListener('scroll',()=>{if(!scrollScheduled){scrollScheduled=true;requestAnimationFrame(updateSticky);}},{passive:true});
@@ -178,7 +218,7 @@ const contactChoice=document.querySelector('[data-contact-choice]');
 let choiceTrigger;
 const contactRequests={
   hero:'Здравствуйте! Интересуют документы и схема земельного массива 6,2 га в Новом Бородино.',
-  diligence:'Здравствуйте! Хочу получить пакет документов для проверки земельного массива 6,2 га.',
+  diligence:'Здравствуйте! Хочу ознакомиться с документами по земельному массиву 6,2 га.',
   engineering:'Здравствуйте! Пришлите, пожалуйста, реестр участков и технические условия по массиву 6,2 га.',
   materials:'Здравствуйте! Хочу получить документы и схему земельного массива 6,2 га.',
   viewing:'Здравствуйте! Хочу обсудить просмотр земельного массива 6,2 га в Новом Бородино.'
@@ -186,9 +226,11 @@ const contactRequests={
 document.querySelectorAll('[data-contact-choice-open]').forEach(trigger=>trigger.addEventListener('click',event=>{
   choiceTrigger=event.currentTarget;
   const message=contactRequests[choiceTrigger.dataset.contactContext]||contactRequests.materials;
-  const offer=message.replace(/^Здравствуйте!\s*/,'').replace(/[.!]$/,'');
-  contactChoice.querySelector('[data-choice-channel="whatsapp"]').href=withOfferMessage(contacts.whatsappUrl,offer);
-  contactChoice.querySelector('[data-choice-channel="telegram"]').href=withOfferMessage(contacts.telegramUrl,offer);
+  for (const channel of ['whatsapp','telegram']) {
+    const url=new URL(contacts[channel+'Url']);
+    url.searchParams.set('text',message);
+    contactChoice.querySelector('[data-choice-channel="'+channel+'"]').href=url.href;
+  }
   contactChoice.querySelector('[data-contact-choice-copy]').textContent=message;
   contactChoice.showModal();document.body.style.overflow='hidden';updateSticky();
 }));

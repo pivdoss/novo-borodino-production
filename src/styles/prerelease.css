@@ -1,0 +1,85 @@
+/* Content-led rhythm: compact evidence sections, generous image sections. */
+.lot-section{padding-block:80px}
+.lot-heading{margin-bottom:38px}
+.functional h2{font-size:clamp(40px,3.4vw,60px);line-height:1.07;letter-spacing:-.035em}
+.functional .lot-heading{align-items:start;gap:6%}
+.functional .lot-heading>p{max-width:620px}
+.lot-hero{min-height:0}
+.lot-hero__content{padding-block:76px 56px}
+.lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1180px}
+.lot-hero h1 em{white-space:normal}
+.lot-hero__cta-note{max-width:620px;font-size:15px}
+.lot-header__inner{gap:22px}
+.lot-nav{gap:22px}
+.lot-header__cta{background:transparent;color:var(--lot-ink);font-size:14px}
+.asset-metrics{padding-block:26px}
+.asset-summary{justify-content:flex-end;margin-top:18px}
+.lot-asset{padding-bottom:32px}
+.lot-concept{padding-top:28px;padding-bottom:0}
+.lot-concept .lot-heading{grid-template-columns:1fr 1fr;margin-bottom:28px}
+.lot-concept__full{background:#202b29}
+.lot-concept__full img{max-height:800px;object-fit:contain}
+.lot-concept__caption{gap:16px 40px;padding-block:22px}
+.lot-concept__caption .section-next{grid-column:1/-1;margin:0;padding-top:12px}
+.lot-context{padding-bottom:0}
+.transition-rail{display:block;background:var(--lot-deep);color:#d6ddd6;text-decoration:none;margin-top:26px;padding-block:23px;font-size:16px}
+.transition-rail>.lot-container{display:block}
+.section-next{display:flex;justify-content:space-between;gap:24px;padding-top:22px;margin-top:28px;border-top:1px solid var(--lot-line);font-size:16px;line-height:1.5;text-decoration:none}
+.lot-section--ink .section-next,.lot-render-conveyor .section-next,.lot-location .section-next{border-color:#617168;color:#d6ddd6}
+.cta-rail{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:25px;margin-top:30px;border-top:1px solid var(--lot-line)}
+.cta-rail>p{font-size:15px;color:var(--muted)}
+.cta-rail>.lot-text-link{flex-shrink:0}
+.lot-section--ink .cta-rail{border-color:#617168}
+.lot-section--ink .cta-rail>p{color:#c9d0c6}
+.lot-section--ink .lot-text-link{color:#f5f3ed}
+.fact-status{margin-bottom:0}
+.fact-status article{grid-template-columns:145px minmax(260px,.9fr) 1.3fr;gap:32px;padding-block:26px}
+.fact-status h3{font-size:24px}
+.fact-status article>span{font-size:12px;line-height:1.6}
+.fact-status p{font-size:17px}
+.engineering-grid{gap:32px}
+.engineering-grid article{padding-top:22px}
+.proof-value{display:block;font:400 clamp(29px,2.5vw,40px)/1.15 Georgia,serif;color:#985038;margin-bottom:18px;letter-spacing:-.025em}
+.engineering-grid h3{font-size:22px;margin-bottom:12px}
+.project-next{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;background:#ebece4;padding:24px 28px}
+.project-next .lot-kicker{display:block;font-size:12px;margin-bottom:10px}
+.project-next h3{font-size:20px}
+.project-next p{font-size:16px;color:var(--muted)}
+.lot-materials{padding-block:64px;background:#e7e2d7}
+.lot-materials__inner{grid-template-columns:1fr 1.15fr;gap:7%}
+.materials-list{display:grid;grid-template-columns:1fr 1fr;column-gap:26px;margin-bottom:24px}
+.materials-list li,.materials-list li:first-child{padding-block:11px;font-size:16px;line-height:1.5}
+.lot-render-conveyor{padding-bottom:32px}
+.lot-chapters__list{gap:28px}
+.lot-chapters__list h3{font-size:22px}
+.lot-location h2{font-size:clamp(38px,3.4vw,58px)}
+.lot-location__editorial{padding-block:64px}
+.lot-location__editorial .section-next{width:100%;margin-top:8px}
+.lot-faq{padding-block:56px;background:var(--lot-paper)}
+.lot-faq__grid{grid-template-columns:.65fr 1.35fr;gap:7%}
+.lot-contact{padding-block:80px}
+.lot-contact .lot-text-link{color:#f5f3ed}
+.contact-card>.lot-text-link{margin-top:14px;width:100%}
+.contact-choice{max-height:calc(100dvh - 32px);overflow:auto}
+.contact-choice>small{font-size:14px}
+.contact-choice h2{font-size:32px}
+.lot-lightbox .zoom-controls{display:flex;gap:8px;position:absolute;top:8px;left:20px}
+.zoom-controls button{min-width:44px;min-height:40px;border:1px solid #8a998d;background:transparent;color:#fff}
+.lightbox-scroll{overflow:auto;max-height:calc(90dvh - 140px);touch-action:pan-x pan-y pinch-zoom}
+.lightbox-scroll.is-zoomed img{max-width:none;max-height:none;width:var(--zoom-width);cursor:grab}
+@media(max-width:1200px){.lot-nav{gap:14px}.lot-header__inner{gap:16px}.lot-header__cta{padding-inline:12px}.fact-status article{grid-template-columns:130px 1fr 1.2fr;gap:22px}}
+@media(max-width:900px){.functional .lot-heading,.lot-concept .lot-heading,.lot-materials__inner{grid-template-columns:1fr}.fact-status article{grid-template-columns:120px 1fr}.fact-status p{grid-column:2}.cta-rail{align-items:flex-start;flex-direction:column;gap:14px}.lot-faq__grid{grid-template-columns:1fr}.lot-hero{min-height:0}}
+@media(max-width:760px){
+ .lot-section{padding-block:52px}.lot-heading{margin-bottom:26px}.functional h2{font-size:clamp(34px,9vw,44px)}
+ .lot-hero__content{padding-block:44px 32px}.lot-hero h1{font-size:clamp(38px,9.4vw,54px)}.lot-hero h1 br{display:none}.lot-hero__cta-note{font-size:14px}
+ .lot-asset{padding-bottom:18px}.lot-concept{padding-top:20px;padding-bottom:0}.lot-concept__full img{max-height:360px}
+ .lot-concept__caption{padding-block:18px;gap:12px}.lot-concept__caption p{font-size:15px}
+ .lot-context{padding-bottom:0}.transition-rail{font-size:15px;margin-top:20px;padding-block:20px}
+ .fact-status article{grid-template-columns:1fr;gap:9px;padding-block:22px}.fact-status p{grid-column:auto;font-size:16px}.fact-status h3{font-size:22px}
+ .engineering-grid{gap:24px;margin-bottom:24px}.proof-value{font-size:32px;margin-bottom:12px}.engineering-grid h3{font-size:21px}
+ .project-next{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+ .cta-rail{margin-top:24px;padding-top:22px;align-items:stretch}.cta-rail>.lot-text-link{width:100%;flex-shrink:1}
+ .section-next{font-size:15px;margin-top:22px;padding-top:18px}.materials-list{grid-template-columns:1fr}.lot-materials__inner{gap:26px}
+ .lot-render-conveyor{padding-bottom:24px}.lot-location__editorial{padding-block:52px}
+ .lot-contact{padding-block:60px}.lot-contact h2{font-size:40px}.lot-lightbox .zoom-controls{left:8px}
+}
