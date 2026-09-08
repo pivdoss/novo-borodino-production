@@ -1,0 +1,15 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const html=await fs.readFile('dist/index.html','utf8');
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
+for(const [,id] of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(id),`missing anchor ${id}`);
+assert(!/<form\b|<input\b|about:invalid|localhost:4173/.test(html),'invalid release markup');
+for(const [,phone] of html.matchAll(/href="(tel:[^"]+)"/g))assert.equal(phone,'tel:+79855507679');
+const resources=new Set([...html.matchAll(/\/images\/[a-zA-Z0-9_./-]+\.webp/g)].map(m=>m[0]));
+for(const resource of resources)await fs.access('dist'+resource);
+assert.equal([...resources].filter(p=>/^\/images\/actual-gallery\//.test(p)).length,10);
+assert.equal([...resources].filter(p=>/^\/images\/renders\//.test(p)).length,15);
+for(const [,tag] of html.matchAll(/(<img\b[^>]+>)/g))assert(/alt=/.test(tag),'image missing alt');
+const total=(await Promise.all([...resources].map(async p=>(await fs.stat('dist'+p)).size))).reduce((a,b)=>a+b,0);
+console.log(`Page checks passed: ${ids.length} IDs, ${resources.size} image resources, ${(total/1024/1024).toFixed(2)} MiB including responsive alternatives. 10 photos + 15 renders.`);

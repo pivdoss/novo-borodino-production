@@ -21,14 +21,23 @@
 Укажите настоящий HTTPS-домен в `SITE_URL`, соберите проект и выполните
 проверки:
 
+Сборка требует `SITE_URL` в окружении (не только в `.env.local`). Для релиза
+явно задайте `SITE_INDEXABLE=true`; по умолчанию тестовая сборка закрыта от индексации.
+Для локальной проверки: `SITE_URL=http://localhost:4185` и
+`ALLOW_LOCAL_PRODUCTION_PREVIEW=true`. Запуск разработки: `pnpm run dev`.
+
 ```powershell
 pnpm run build
 pnpm run check:seo
 pnpm run check:external-links
 pnpm run check:mobile-safety
 pnpm run check:runtime-contracts
+pnpm run check:page
 ```
 
 Яндекс Метрика отключена до создания нового счётчика для настоящего домена.
 После указания `VITE_METRIKA_ID` она будет загружаться только после согласия
 посетителя на аналитические cookie.
+
+Аудит и результаты проверки: [docs/АУДИТ_2026-09-08.md](docs/АУДИТ_2026-09-08.md).
+Порядок публикации и события аналитики: [docs/RELEASE.md](docs/RELEASE.md).

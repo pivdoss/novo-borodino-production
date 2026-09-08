@@ -1,8 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { publicRoutes } from './generate-pages.mjs';
-import { siteUrl } from './site-config.mjs';
+import { siteUrl, publicRoutes, siteIndexable } from './site-config.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const buildRoot = path.join(projectRoot, 'dist');
@@ -39,7 +38,7 @@ for (const route of publicRoutes) {
   if (!description || description.length < 70) errors.push(`${route}: description отсутствует или слишком короткий`);
   if (canonical !== `${productionOrigin}${route}`) errors.push(`${route}: неверный canonical (${canonical})`);
   if (h1Count !== 1) errors.push(`${route}: найдено H1 — ${h1Count}`);
-  if (/name="robots"[^>]+noindex/i.test(html)) errors.push(`${route}: публичная страница закрыта от индексации`);
+  if (siteIndexable && /name="robots"[^>]+noindex/i.test(html)) errors.push(`${route}: публичная страница закрыта от индексации`);
   if (html.includes('/@vite/client') || html.includes('/src/')) errors.push(`${route}: в production HTML осталась ссылка на исходный код Vite`);
   if (/готовые дома/i.test(html)) errors.push(`${route}: найдена неподтверждённая формулировка «готовые дома»`);
   if (/ИЖС/i.test(html)) errors.push(`${route}: найден устаревший термин «ИЖС»`);

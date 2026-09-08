@@ -10,5 +10,3 @@ services:
         ALLOW_LOCAL_PRODUCTION_PREVIEW: "true"
     ports:
       - "8081:80"
-    depends_on:
-      - registry-api

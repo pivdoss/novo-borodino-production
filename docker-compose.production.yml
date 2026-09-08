@@ -11,6 +11,7 @@ services:
       args:
         SITE_URL: ${SITE_URL:?Set the real HTTPS SITE_URL in .env.production}
         VITE_METRIKA_ID: ${VITE_METRIKA_ID:-}
+        SITE_INDEXABLE: ${SITE_INDEXABLE:-false}
     environment:
       NODE_ENV: production
     expose:

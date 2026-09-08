@@ -23,8 +23,7 @@ export const withOfferMessage = (url, offer = '') => {
   const message = offerMessage(offer);
   try {
     const link = new URL(url);
-    if (link.hostname.includes('wa.me')) link.searchParams.set('text', message);
-    if (link.hostname.includes('t.me') && link.pathname.startsWith('/share')) link.searchParams.set('text', message);
+    if (['wa.me', 't.me'].includes(link.hostname)) link.searchParams.set('text', message);
     return link.toString();
   } catch {
     return url;

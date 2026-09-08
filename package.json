@@ -1,5 +1,5 @@
 {
-  "name": "website-starter",
+  "name": "novo-borodino",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -7,12 +7,13 @@
     "generate": "node scripts/generate-pages.mjs",
     "dev": "pnpm run generate && vite",
     "dev:docker": "pnpm run generate && vite --host 0.0.0.0 --port 4173",
-    "build": "pnpm run generate && vite build && pnpm run prune:production",
+    "build": "node scripts/build.mjs",
     "prune:production": "node scripts/prune-production-assets.mjs",
     "check:seo": "node scripts/check-seo.mjs",
     "check:external-links": "node scripts/check-external-links.mjs",
     "check:mobile-safety": "node scripts/check-mobile-safety.mjs",
     "check:runtime-contracts": "node scripts/check-runtime-contracts.mjs",
+    "check:page": "node scripts/check-page.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {

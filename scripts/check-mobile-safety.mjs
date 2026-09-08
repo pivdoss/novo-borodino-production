@@ -9,10 +9,10 @@ const landingCss = await fs.readFile(path.join(root, 'src', 'styles', 'lot-landi
 const source = html + mainCss + landingCss;
 const required = [
   [/<meta name="viewport" content="width=device-width, initial-scale=1\.0"/, 'viewport meta tag'],
-  [/body\s*\{[^}]*overflow-x:clip/, 'horizontal overflow protection'],
-  [/@media\s*\(max-width:760px\)/, 'mobile breakpoint'],
-  [/\.lot-hero h1\s*\{[^}]*font-size:clamp/, 'responsive hero heading'],
-  [/\.lot-stats\s*\{[^}]*grid-template-columns:1fr 1fr/, 'responsive facts grid'],
+  [/body\s*\{[^}]*overflow-x:\s*clip/, 'horizontal overflow protection'],
+  [/@media\s*\(max-width:\s*760px\)/, 'mobile breakpoint'],
+  [/\.lot-hero h1\s*\{[^}]*font-size:\s*clamp/, 'responsive hero heading'],
+  [/\.asset-metrics\s*\{[^}]*grid-template-columns:\s*1fr 1fr/, 'responsive facts grid'],
 ];
 const errors = required.filter(([pattern]) => !pattern.test(source)).map(([, name]) => name);
 if (errors.length) {

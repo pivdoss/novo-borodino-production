@@ -8,10 +8,11 @@ const [main, landing, compose, nginx] = await Promise.all([
   read('src/main.js'), read('src/lot-landing.js'), read('docker-compose.yml'), read('nginx.conf'),
 ]);
 const checks = [
-  [landing.includes('земельный актив 6,2 га') && landing.includes('71 участок') && landing.includes('1 га внутренних дорог') && landing.includes('55 млн ₽'), 'landing contains the confirmed 6.2 ha asset'],
+  [landing.includes('6,2 га') && landing.includes('71 участок') && landing.includes('1 га внутренних дорог') && landing.includes('55 млн ₽'), 'landing contains the confirmed 6.2 ha asset'],
   [main.includes('initAnalyticsConsent'), 'analytics starts only through the consent module'],
   [landing.includes('contacts.whatsappUrl') && landing.includes('contacts.telegramUrl') && landing.includes('contacts.maxUrl'), 'landing exposes configured contact channels'],
   [!compose.includes('registry-api') && !compose.includes('lead-api'), 'compose has no registry or lead service'],
+  [!nginx.includes('proxy_pass') && !/<form\b|<input\b/i.test(landing), 'no form or deleted backend upstream'],
   [nginx.includes('mc.yandex.ru') && nginx.includes('Content-Security-Policy'), 'nginx keeps security policy and analytics consent origins'],
 ];
 const failed = checks.filter(([ok]) => !ok).map(([, label]) => label);

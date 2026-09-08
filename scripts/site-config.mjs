@@ -22,3 +22,5 @@ if (isProduction && !localProductionPreview && (parsedSiteUrl.protocol !== 'http
 }
 
 export const siteUrl = parsedSiteUrl.origin;
+export const publicRoutes = ['/', '/cookie-i-analitika/'];
+export const siteIndexable = process.env.SITE_INDEXABLE === 'true';
