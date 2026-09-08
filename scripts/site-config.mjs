@@ -1,6 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const localProductionPreview = process.env.ALLOW_LOCAL_PRODUCTION_PREVIEW === 'true';
-const rawSiteUrl = String(process.env.SITE_URL || (isProduction ? '' : 'http://localhost:4173')).trim();
+const rawSiteUrl = String(process.env.SITE_URL || (isProduction ? '' : 'http://localhost:4173/')).trim();
 
 if (!rawSiteUrl) {
   throw new Error('SITE_URL is required for a production build. Use the real HTTPS domain, for example https://your-domain.ru');
