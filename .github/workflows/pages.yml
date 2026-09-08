@@ -16,9 +16,6 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,13 +32,12 @@ jobs:
           SITE_URL: https://pivdoss.github.io/novo-borodino-production/
           SITE_INDEXABLE: 'true'
         run: pnpm run build
-      - name: Adapt project-site asset paths
+      - name: Adapt project-site paths
         shell: bash
         run: |
-          find dist -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.xml' -o -name '*.txt' \) -print0 | xargs -0 sed -i 's#"/images/#"/novo-borodino-production/images/#g; s#"/assets/#"/novo-borodino-production/assets/#g; s#href="/#href="/novo-borodino-production/#g; s#content="https://pivdoss.github.io/"#content="https://pivdoss.github.io/novo-borodino-production/"#g'
+          find dist -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.xml' -o -name '*.txt' \) -print0 | xargs -0 sed -i 's#"/images/#"/novo-borodino-production/images/#g; s#href="/#href="/novo-borodino-production/#g; s#content="https://pivdoss.github.io/"#content="https://pivdoss.github.io/novo-borodino-production/#g'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v4
