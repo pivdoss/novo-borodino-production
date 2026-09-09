@@ -1,13 +1,13 @@
 /**
  * Контакты публичной версии без форм. Заполните только эти три поля перед
- * публикацией: номер в международном формате, ссылку WhatsApp и Telegram.
+ * публикацией: номер в международном формате и ссылки на мессенджеры.
  */
 export const contacts = Object.freeze({
   managerName: 'Отдел продаж',
   phone: '+7 985 550-76-79',
-  whatsappUrl: 'https://wa.me/79855507679',
+  whatsappUrl: 'https://wa.me/qr/LJ2PJX2QVCAUF1',
   telegramUrl: 'https://t.me/EKATERINAXAB',
-  maxUrl: 'https://max.ru/u/f9LHodD0cOLg6I497RJAx7V9x3EbNCLPIIWQU6bF58Y8NrrA2v63La7wSqs',
+  maxUrl: 'https://max.ru/u/f9LHodD0cOIKyq_lGjltM2c8n8brktf8TcPF8ScEJBo2TlSHtoIMWxoL8Vc',
 });
 
 export const hasContact = (type) => Boolean(contacts[type]?.trim());
@@ -23,7 +23,12 @@ export const withOfferMessage = (url, offer = '') => {
   const message = offerMessage(offer);
   try {
     const link = new URL(url);
-    if (['wa.me', 't.me'].includes(link.hostname)) link.searchParams.set('text', message);
+    // QR links are provided by WhatsApp as complete redirect URLs and must
+    // stay unchanged. A prefilled message is supported only for direct phone
+    // links; Telegram keeps its current prefilled-message behavior.
+    if (link.hostname === 't.me' || (link.hostname === 'wa.me' && /^\/\d+$/.test(link.pathname))) {
+      link.searchParams.set('text', message);
+    }
     return link.toString();
   } catch {
     return url;
