@@ -2,8 +2,8 @@
 .lot-section{padding-block:80px}
 .lot-heading{margin-bottom:38px}
 .functional h2{font-size:clamp(40px,3.4vw,60px);line-height:1.07;letter-spacing:-.035em}
-.functional .lot-heading{align-items:start;gap:6%}
-.functional .lot-heading>p{max-width:620px}
+.functional .lot-heading{grid-template-columns:minmax(0,1fr) minmax(420px,.92fr);align-items:start;gap:10%}
+.functional .lot-heading>p{max-width:640px;padding-top:46px;font-size:clamp(19px,1.35vw,22px);line-height:1.48}
 .lot-hero{min-height:0}
 .lot-hero__content{padding-block:76px 56px}
 .lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1180px}
@@ -55,8 +55,15 @@
 .lot-location h2{font-size:clamp(38px,3.4vw,58px)}
 .lot-location__editorial{padding-block:64px}
 .lot-location__editorial .section-next{width:100%;margin-top:8px}
-.lot-faq{padding-block:56px;background:var(--lot-paper)}
-.lot-faq__grid{grid-template-columns:.65fr 1.35fr;gap:7%}
+.lot-faq{padding-block:72px;background:var(--lot-paper)}
+.lot-faq__grid{grid-template-columns:minmax(300px,.72fr) minmax(520px,1.28fr);gap:0;background:#e8ebe3;border:1px solid var(--lot-line)}
+.lot-faq__intro{display:flex;flex-direction:column;min-height:100%;padding:50px 54px;border-right:1px solid var(--lot-line);background:#dde2d8}
+.lot-faq__intro h2{font-size:clamp(42px,3.6vw,62px)}
+.lot-faq__intro>p:not(.lot-kicker){max-width:310px;margin-top:28px;color:var(--muted);font-size:18px;line-height:1.5}
+.lot-faq__intro>span{margin-top:auto;padding-top:42px;color:#985038;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.lot-faq__list{padding:18px 48px 22px}
+.lot-faq details:first-child{border-top:0}
+.lot-faq details p{max-width:720px}
 .lot-contact{padding-block:80px}
 .lot-contact .lot-text-link{color:#f5f3ed}
 .contact-card>.lot-text-link{margin-top:14px;width:100%}
@@ -68,7 +75,7 @@
 .lightbox-scroll{overflow:auto;max-height:calc(90dvh - 140px);touch-action:pan-x pan-y pinch-zoom}
 .lightbox-scroll.is-zoomed img{max-width:none;max-height:none;width:var(--zoom-width);cursor:grab}
 @media(max-width:1200px){.lot-nav{gap:14px}.lot-header__inner{gap:16px}.lot-header__cta{padding-inline:12px}.fact-status article{grid-template-columns:130px 1fr 1.2fr;gap:22px}}
-@media(max-width:900px){.functional .lot-heading,.lot-concept .lot-heading,.lot-materials__inner{grid-template-columns:1fr}.fact-status article{grid-template-columns:120px 1fr}.fact-status p{grid-column:2}.cta-rail{align-items:flex-start;flex-direction:column;gap:14px}.lot-faq__grid{grid-template-columns:1fr}.lot-hero{min-height:0}}
+@media(max-width:900px){.functional .lot-heading,.lot-concept .lot-heading,.lot-materials__inner{grid-template-columns:1fr}.functional .lot-heading>p{padding-top:0}.fact-status article{grid-template-columns:120px 1fr}.fact-status p{grid-column:2}.cta-rail{align-items:flex-start;flex-direction:column;gap:14px}.lot-faq__grid{grid-template-columns:1fr}.lot-faq__intro{padding:38px 36px;border-right:0;border-bottom:1px solid var(--lot-line)}.lot-faq__intro>span{margin-top:30px;padding-top:0}.lot-faq__list{padding:12px 36px 20px}.lot-hero{min-height:0}}
 @media(max-width:760px){
  .lot-section{padding-block:52px}.lot-heading{margin-bottom:26px}.functional h2{font-size:clamp(34px,9vw,44px)}
  .lot-hero__content{padding-block:44px 32px}.lot-hero h1{font-size:clamp(38px,9.4vw,54px)}.lot-hero h1 br{display:none}.lot-hero__cta-note{font-size:14px}
@@ -80,6 +87,6 @@
  .project-next{grid-template-columns:1fr;gap:14px;padding:22px 20px}
  .cta-rail{margin-top:24px;padding-top:22px;align-items:stretch}.cta-rail>.lot-text-link{width:100%;flex-shrink:1}
  .section-next{font-size:15px;margin-top:22px;padding-top:18px}.materials-list{grid-template-columns:1fr}.lot-materials__inner{gap:26px}
- .lot-render-conveyor{padding-bottom:24px}.lot-location__editorial{padding-block:52px}
+ .lot-render-conveyor{padding-bottom:24px}.lot-location__editorial{padding-block:52px}.lot-faq{padding-block:52px}.lot-faq__intro{padding:32px 24px}.lot-faq__intro h2{font-size:42px}.lot-faq__intro>p:not(.lot-kicker){font-size:17px;margin-top:20px}.lot-faq__list{padding:10px 24px 18px}
  .lot-contact{padding-block:60px}.lot-contact h2{font-size:40px}.lot-lightbox .zoom-controls{left:8px}
 }
