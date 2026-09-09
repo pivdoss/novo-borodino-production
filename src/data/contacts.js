@@ -3,7 +3,7 @@
  * публикацией: номер в международном формате, ссылку WhatsApp и Telegram.
  */
 export const contacts = Object.freeze({
-  managerName: 'Екатерина Хабарова',
+  managerName: 'Отдел продаж',
   phone: '+7 985 550-76-79',
   whatsappUrl: 'https://wa.me/79855507679',
   telegramUrl: 'https://t.me/EKATERINAXAB',

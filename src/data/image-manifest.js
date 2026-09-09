@@ -31,12 +31,6 @@ export default {
     "small": "/images/responsive/territory-territory-slide-03-800.webp",
     "smallWidth": 800
   },
-  "territory/territory-slide-04": {
-    "width": 1481,
-    "height": 1062,
-    "small": "/images/responsive/territory-territory-slide-04-800.webp",
-    "smallWidth": 800
-  },
   "territory/territory-slide-05": {
     "width": 1511,
     "height": 1041,

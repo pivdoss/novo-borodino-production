@@ -22,7 +22,7 @@
 .lot-concept__caption{gap:16px 40px;padding-block:22px}
 .lot-concept__caption .section-next{grid-column:1/-1;margin:0;padding-top:12px}
 @media(min-width:901px){
- .lot-concept{height:calc(100svh - 160px);min-height:620px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:18px;padding-bottom:0}
+ .lot-concept{height:calc(100svh - 96px);min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:18px;padding-bottom:0}
  .lot-concept .lot-heading{margin-bottom:12px}
  .lot-concept .lot-heading h2{font-size:clamp(38px,3vw,54px)}
  .lot-concept .lot-heading>p{padding-top:38px;font-size:18px}
@@ -60,6 +60,9 @@
 .lot-materials__inner{grid-template-columns:1fr 1.15fr;gap:7%}
 .materials-list{display:grid;grid-template-columns:1fr 1fr;column-gap:26px;margin-bottom:24px}
 .materials-list li,.materials-list li:first-child{padding-block:11px;font-size:16px;line-height:1.5}
+.materials-list li{display:grid;gap:3px}
+.materials-list li strong{font-size:17px;font-weight:600;color:var(--lot-ink)}
+.materials-list li span{font-size:14px;color:var(--muted)}
 .lot-render-conveyor{padding-bottom:32px}
 .lot-chapters__list{gap:28px}
 .lot-chapters__list h3{font-size:22px}
@@ -79,6 +82,9 @@
 .lot-contact{padding-block:80px}
 .lot-contact .lot-text-link{color:#f5f3ed}
 .contact-card>.lot-text-link{margin-top:14px;width:100%}
+.contact-messengers{gap:10px}
+.contact-messengers a{padding:10px 14px;background:#a6573c;color:#fff;border:1px solid #a6573c;font-weight:600;transition:background .2s,border-color .2s,transform .2s}
+.contact-messengers a:hover,.contact-messengers a:focus-visible{background:#87442f;border-color:#87442f;color:#fff;transform:translateY(-1px)}
 .contact-choice{max-height:calc(100dvh - 32px);overflow:auto}
 .contact-choice>small{font-size:14px}
 .contact-choice h2{font-size:32px}
