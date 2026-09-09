@@ -5,7 +5,7 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
 for(const [,id] of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(id),`missing anchor ${id}`);
 assert(!/<form\b|<input\b|about:invalid|localhost:4173/.test(html),'invalid release markup');
-for(const [,phone] of html.matchAll(/href="(tel:[^"]+)"/g))assert.equal(phone,'tel:+79855507679');
+for(const [,phone] of html.matchAll(/href="(tel:[^"]+)"/g))assert.equal(phone,'tel:+79037771726');
 const resources=new Set([...html.matchAll(/\/images\/[a-zA-Z0-9_./-]+\.webp/g)].map(m=>m[0]));
 for(const resource of resources)await fs.access('dist'+resource);
 assert.equal([...resources].filter(p=>/^\/images\/actual-gallery\//.test(p)).length,10);
