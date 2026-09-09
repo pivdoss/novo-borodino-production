@@ -10,6 +10,14 @@ export default defineConfig({
   server: { watch: { ignored: ['**/.audit_tmp/**'] } },
   build: {
     rollupOptions: {
+      output: {
+        // GitHub Pages may keep an HTML document in a browser cache while a
+        // new deployment replaces hashed assets. A stable stylesheet path
+        // prevents the page from rendering without its design across updates.
+        assetFileNames: (asset) => asset.name?.endsWith('.css')
+          ? 'assets/main.css'
+          : 'assets/[name]-[hash][extname]',
+      },
       input: {
         home: input('index.html'),
         cookieAnalytics: input('cookie-i-analitika/index.html'),
