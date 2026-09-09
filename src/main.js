@@ -130,7 +130,7 @@ if (slider) {
   const clone = slide => { const el = slide.cloneNode(true); el.setAttribute('aria-hidden','true'); el.inert = true; return el; };
   track.prepend(clone(originals.at(-1))); track.append(clone(originals[0]),clone(originals[1]));
   const slides = [...track.children];
-  let index=1, timer, wrapping, locked=false, visible=false, paused=reducedMotion.matches, interaction=false, drag, suppressClickUntil=0;
+  let index=1, timer, wrapping, locked=false, visible=false, paused=reducedMotion.matches, drag, suppressClickUntil=0;
   const count = slider.querySelector('[data-actual-count]');
   const pauseButton = slider.querySelector('[data-actual-pause]');
   const paint = animate => {
@@ -147,7 +147,7 @@ if (slider) {
   const step = direction => { if (locked) return; locked=true; track.setAttribute('aria-busy','true'); index+=direction; paint(true); if (reducedMotion.matches) normalize(); else wrapping=setTimeout(normalize,720); };
   const sync = () => {
     clearInterval(timer); pauseButton.textContent=paused?'Продолжить':'Пауза'; pauseButton.setAttribute('aria-pressed',String(paused));
-    if (visible && !paused && !interaction && !drag && !document.hidden && !dialog.open && !reducedMotion.matches) timer=setInterval(()=>step(1),3000);
+    if (visible && !paused && !drag && !document.hidden && !dialog.open && !reducedMotion.matches) timer=setInterval(()=>step(1),2500);
   };
   track.addEventListener('transitionend',event=>{ if(event.target===track && event.propertyName==='transform') normalize(); });
   slider.querySelector('[data-actual-prev]').addEventListener('click',()=>{step(-1);sync();});
@@ -165,8 +165,6 @@ if (slider) {
   viewport.addEventListener('pointerup',event=>{if(!drag || drag.id!==event.pointerId)return;const dx=event.clientX-drag.x;if(drag.horizontal){suppressClickUntil=Date.now()+400;if(Math.abs(dx)>35)step(dx<0?1:-1);else paint(true);}drag=undefined;sync();});
   viewport.addEventListener('pointercancel',()=>{drag=undefined;paint(false);sync();});
   viewport.addEventListener('click',event=>{if(Date.now()<suppressClickUntil){event.preventDefault();event.stopPropagation();return;}const button=event.target.closest('[data-photo-open]');if(button){openImage(button.querySelector('img'),button.querySelector('.photo-caption').textContent,button);reachMetrikaGoal('gallery_open');}},true);
-  viewport.addEventListener('mouseenter',()=>{interaction=true;sync();});viewport.addEventListener('mouseleave',()=>{interaction=false;sync();});
-  slider.addEventListener('focusin',()=>{interaction=true;sync();});slider.addEventListener('focusout',event=>{if(!slider.contains(event.relatedTarget)){interaction=false;sync();}});
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;sync();},{threshold:.1}).observe(viewport);
   new ResizeObserver(()=>{normalize();}).observe(viewport);
   document.addEventListener('visibilitychange',sync);reducedMotion.addEventListener('change',sync);dialog.addEventListener('close',sync);
