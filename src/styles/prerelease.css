@@ -24,16 +24,16 @@
 @media(min-width:901px){
  .lot-concept{height:auto;min-height:0;padding:42px 0 0;overflow:visible;background:var(--lot-paper);scroll-margin-top:88px}
  .lot-concept>.lot-container:first-child{position:static;width:min(100% - 112px,1536px);transform:none}
- .lot-concept .lot-heading{display:block;margin:0 0 22px;padding:0}
+ .lot-concept .lot-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,520px);align-items:end;gap:9%;margin:0 0 22px;padding:0}
  .lot-concept .lot-heading>div{max-width:680px;padding:0;background:none;color:var(--lot-ink);border:0;box-shadow:none}
  .lot-concept .lot-heading .lot-kicker{margin-bottom:12px;color:#884e38}
  .lot-concept .lot-heading h2{font-size:clamp(40px,3.2vw,58px);line-height:1.04;color:var(--lot-ink)}
+ .lot-concept .lot-heading>p{max-width:520px;justify-self:end;padding:0;font-size:18px;line-height:1.5;color:var(--muted)}
  .lot-concept__full{position:relative;inset:auto;display:grid;place-items:center;min-height:0}
- .lot-concept__full img{width:92%!important;height:auto!important;max-width:none;max-height:none;object-fit:contain}
- .lot-concept__caption{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 40px;padding:20px 0 0;background:none;border-top:1px solid #d4d5cb}
- .lot-concept__caption p{max-width:920px;font-size:16px;line-height:1.5}
+ .lot-concept__full img{width:86%!important;height:auto!important;max-width:none;max-height:none;object-fit:contain}
+ .lot-concept__caption{position:static;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;padding:20px 0 0;background:none;border-top:1px solid #d4d5cb}
  .lot-concept__caption .lot-text-link{white-space:nowrap}
- .lot-concept__caption .section-next{display:flex;grid-column:1/-1;margin-top:0;padding-top:14px}
+ .lot-concept__caption .section-next{display:flex;margin:0;padding:8px 0}
 }
 .lot-context{padding-bottom:0}
 .transition-rail{display:block;background:var(--lot-deep);color:#d6ddd6;text-decoration:none;margin-top:26px;padding-block:23px;font-size:16px}
