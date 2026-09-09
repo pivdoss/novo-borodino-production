@@ -22,15 +22,17 @@
 .lot-concept__caption{gap:16px 40px;padding-block:22px}
 .lot-concept__caption .section-next{grid-column:1/-1;margin:0;padding-top:12px}
 @media(min-width:901px){
- .lot-concept{height:calc(100svh - 96px);min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:18px;padding-bottom:0}
- .lot-concept .lot-heading{margin-bottom:12px}
- .lot-concept .lot-heading h2{font-size:clamp(38px,3vw,54px)}
- .lot-concept .lot-heading>p{padding-top:38px;font-size:18px}
- .lot-concept__full{position:relative;min-height:0;display:block}
- .lot-concept__full img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none;max-height:none;object-fit:contain}
- .lot-concept__caption{padding-block:8px 12px}
- .lot-concept__caption p{font-size:14px}
- .lot-concept__caption .section-next{padding-top:8px}
+ .lot-concept{position:relative;height:calc(100svh - 88px);min-height:620px;padding:0;overflow:hidden;background:var(--lot-paper);scroll-margin-top:88px}
+ .lot-concept>.lot-container:first-child{position:absolute;z-index:2;inset:0 auto auto;left:50%;width:min(100% - 112px,1536px);transform:translateX(-50%);pointer-events:none}
+ .lot-concept .lot-heading{grid-template-columns:minmax(0,1fr) minmax(380px,.86fr);gap:9%;margin:0;padding-top:24px}
+ .lot-concept .lot-heading h2{font-size:clamp(34px,2.65vw,52px);line-height:1.02;text-shadow:0 1px 18px #f5f3ed}
+ .lot-concept .lot-heading>p{max-width:560px;justify-self:end;padding:12px 16px;font-size:17px;line-height:1.45;background:#f5f3ede8;box-shadow:0 2px 18px #18242012}
+ .lot-concept__full{position:absolute;inset:0;display:grid;place-items:center;min-height:0}
+ .lot-concept__full img{width:100%!important;height:100%!important;max-width:none;max-height:none;object-fit:contain}
+ .lot-concept__caption{position:absolute;z-index:2;inset:auto 0 0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 40px;padding:16px max(56px,calc((100% - 1536px)/2));background:#f5f3edee;border-top:1px solid #d4d5cb}
+ .lot-concept__caption p{font-size:14px;line-height:1.45}
+ .lot-concept__caption .lot-text-link{white-space:nowrap}
+ .lot-concept__caption .section-next{display:none}
 }
 .lot-context{padding-bottom:0}
 .transition-rail{display:block;background:var(--lot-deep);color:#d6ddd6;text-decoration:none;margin-top:26px;padding-block:23px;font-size:16px}
