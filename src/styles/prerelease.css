@@ -8,7 +8,7 @@
 .lot-hero__content{padding-block:76px 56px}
 .lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1180px}
 .lot-hero h1 em{white-space:normal}
-.lot-hero__cta-note{max-width:620px;font-size:15px}
+.lot-hero__cta-note{max-width:620px;font-size:16px;line-height:1.55}
 .lot-header__inner{gap:22px}
 .lot-nav{gap:22px}
 .lot-header__cta{background:transparent;color:var(--lot-ink);font-size:14px}
@@ -28,7 +28,7 @@
  .lot-concept .lot-heading>div{max-width:680px;padding:0;background:none;color:var(--lot-ink);border:0;box-shadow:none}
  .lot-concept .lot-heading .lot-kicker{margin-bottom:12px;color:#884e38}
  .lot-concept .lot-heading h2{font-size:clamp(40px,3.2vw,58px);line-height:1.04;color:var(--lot-ink)}
- .lot-concept .lot-heading>p{max-width:520px;justify-self:end;padding:0;font-size:18px;line-height:1.5;color:var(--muted)}
+ .lot-concept .lot-heading>p{max-width:560px;justify-self:end;padding:0;font-size:clamp(19px,1.35vw,22px);line-height:1.48;color:var(--muted)}
  .lot-concept__full{position:relative;inset:auto;display:grid;place-items:center;min-height:0}
  .lot-concept__full img{width:86%!important;height:auto!important;max-width:none;max-height:none;object-fit:contain}
  .lot-concept__caption{position:static;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;padding:20px 0 0;background:none;border-top:1px solid #d4d5cb}
@@ -41,7 +41,7 @@
 .section-next{display:flex;justify-content:space-between;gap:24px;padding-top:22px;margin-top:28px;border-top:1px solid var(--lot-line);font-size:16px;line-height:1.5;text-decoration:none}
 .lot-section--ink .section-next,.lot-render-conveyor .section-next,.lot-location .section-next{border-color:#617168;color:#d6ddd6}
 .cta-rail{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:25px;margin-top:30px;border-top:1px solid var(--lot-line)}
-.cta-rail>p{font-size:15px;color:var(--muted)}
+.cta-rail>p{font-size:16px;line-height:1.55;color:var(--muted)}
 .cta-rail>.lot-text-link{flex-shrink:0}
 .lot-section--ink .cta-rail{border-color:#617168}
 .lot-section--ink .cta-rail>p{color:#c9d0c6}
@@ -65,7 +65,7 @@
 .materials-list li,.materials-list li:first-child{padding-block:11px;font-size:16px;line-height:1.5}
 .materials-list li{display:grid;gap:3px}
 .materials-list li strong{font-size:17px;font-weight:600;color:var(--lot-ink)}
-.materials-list li span{font-size:14px;color:var(--muted)}
+.materials-list li span{font-size:16px;color:var(--muted)}
 .lot-render-conveyor{padding-bottom:32px}
 .lot-chapters__list{gap:28px}
 .lot-chapters__list h3{font-size:22px}
@@ -89,7 +89,7 @@
 .contact-messengers a{padding:10px 14px;background:#a6573c;color:#fff;border:1px solid #a6573c;font-weight:600;transition:background .2s,border-color .2s,transform .2s}
 .contact-messengers a:hover,.contact-messengers a:focus-visible{background:#87442f;border-color:#87442f;color:#fff;transform:translateY(-1px)}
 .contact-choice{max-height:calc(100dvh - 32px);overflow:auto}
-.contact-choice>small{font-size:14px}
+.contact-choice>small{font-size:16px;line-height:1.5}
 .contact-choice h2{font-size:32px}
 .lot-lightbox .zoom-controls{display:flex;gap:8px;position:absolute;top:8px;left:20px}
 .zoom-controls button{min-width:44px;min-height:40px;border:1px solid #8a998d;background:transparent;color:#fff}
@@ -99,9 +99,9 @@
 @media(max-width:900px){.functional .lot-heading,.lot-concept .lot-heading,.lot-materials__inner{grid-template-columns:1fr}.functional .lot-heading>p{padding-top:0}.fact-status article{grid-template-columns:120px 1fr}.fact-status p{grid-column:2}.cta-rail{align-items:flex-start;flex-direction:column;gap:14px}.lot-faq__intro{margin-bottom:34px}.lot-hero{min-height:0}}
 @media(max-width:760px){
  .lot-section{padding-block:52px}.lot-heading{margin-bottom:26px}.functional h2{font-size:clamp(34px,9vw,44px)}
- .lot-hero__content{padding-block:44px 32px}.lot-hero h1{font-size:clamp(38px,9.4vw,54px)}.lot-hero h1 br{display:none}.lot-hero__cta-note{font-size:14px}
+ .lot-hero__content{padding-block:44px 32px}.lot-hero h1{font-size:clamp(38px,9.4vw,54px)}.lot-hero h1 br{display:none}.lot-hero__cta-note{font-size:16px}
  .lot-asset{padding-bottom:18px}.lot-concept{padding-top:20px;padding-bottom:0}.lot-concept__full img{max-height:360px}
- .lot-concept__caption{padding-block:18px;gap:12px}.lot-concept__caption p{font-size:15px}
+ .lot-concept__caption{padding-block:18px;gap:12px}.lot-concept__caption p{font-size:16px}
  .lot-context{padding-bottom:0}.transition-rail{font-size:15px;margin-top:20px;padding-block:20px}
  .fact-status article{grid-template-columns:1fr;gap:9px;padding-block:22px}.fact-status p{grid-column:auto;font-size:16px}.fact-status h3{font-size:22px}
  .engineering-grid{gap:24px;margin-bottom:24px}.proof-value{font-size:32px;margin-bottom:12px}.engineering-grid h3{font-size:21px}
