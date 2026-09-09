@@ -90,16 +90,15 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   const clones = originals.map(slide => { const clone = slide.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); clone.inert = true; clone.querySelectorAll('img').forEach(img => img.alt = ''); return clone; });
   track.append(...clones);
   let offset = 0, loop = 0, frame = 0, last = 0, visible = false, drag, paused = reducedMotion.matches;
-  let hovering = false;
   const pauseButton = root.querySelector('[data-conveyor-pause]');
   const measure = () => { loop = clones[0].getBoundingClientRect().left - originals[0].getBoundingClientRect().left; paint(); };
   const paint = () => { if (loop) offset = ((offset % loop) + loop) % loop; track.style.transform = `translate3d(${-offset}px,0,0)`; };
   const stop = () => { cancelAnimationFrame(frame); frame = 0; last = 0; };
-  const tick = time => { if (last) offset += Math.min(time-last, 50) * .026; last = time; paint(); frame = requestAnimationFrame(tick); };
+  const tick = time => { if (last) offset += Math.min(time-last, 50) * .039; last = time; paint(); frame = requestAnimationFrame(tick); };
   const sync = () => {
     pauseButton.textContent = paused ? 'Продолжить' : 'Пауза'; pauseButton.setAttribute('aria-pressed', String(paused));
     stop();
-    if (visible && !paused && !hovering && !drag && !document.hidden && !dialog?.open && !reducedMotion.matches) frame = requestAnimationFrame(tick);
+    if (visible && !paused && !drag && !document.hidden && !dialog?.open && !reducedMotion.matches) frame = requestAnimationFrame(tick);
   };
   const step = direction => { offset += direction * loop / originals.length; paused = true; paint(); sync(); };
   root.querySelector('[data-conveyor-prev]').addEventListener('click', () => step(-1));
@@ -116,8 +115,6 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   });
   const finish = () => { drag = undefined; viewport.classList.remove('is-dragging'); sync(); };
   viewport.addEventListener('pointerup', finish); viewport.addEventListener('pointercancel', finish); viewport.addEventListener('lostpointercapture', finish);
-  viewport.addEventListener('mouseenter', () => { hovering = true; sync(); }); viewport.addEventListener('mouseleave', () => { hovering = false; sync(); });
-  viewport.addEventListener('focusin', () => { hovering = true; sync(); }); viewport.addEventListener('focusout', () => { hovering = false; sync(); });
   new ResizeObserver(measure).observe(viewport);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, {threshold:.1}).observe(viewport);
   document.addEventListener('visibilitychange', sync); reducedMotion.addEventListener('change', sync); dialog?.addEventListener('close', sync);
@@ -150,7 +147,7 @@ if (slider) {
   const step = direction => { if (locked) return; locked=true; track.setAttribute('aria-busy','true'); index+=direction; paint(true); if (reducedMotion.matches) normalize(); else wrapping=setTimeout(normalize,720); };
   const sync = () => {
     clearInterval(timer); pauseButton.textContent=paused?'Продолжить':'Пауза'; pauseButton.setAttribute('aria-pressed',String(paused));
-    if (visible && !paused && !interaction && !drag && !document.hidden && !dialog.open && !reducedMotion.matches) timer=setInterval(()=>step(1),4000);
+    if (visible && !paused && !interaction && !drag && !document.hidden && !dialog.open && !reducedMotion.matches) timer=setInterval(()=>step(1),3000);
   };
   track.addEventListener('transitionend',event=>{ if(event.target===track && event.propertyName==='transform') normalize(); });
   slider.querySelector('[data-actual-prev]').addEventListener('click',()=>{step(-1);sync();});
@@ -176,12 +173,7 @@ if (slider) {
   new MutationObserver(sync).observe(dialog,{attributes:true,attributeFilter:['open']});paint(false);sync();
 }
 
-const mapButton=document.querySelector('[data-map-activate]');
-mapButton?.addEventListener('click',()=>{
-  const frame=document.querySelector('[data-lot-map] iframe'),status=document.querySelector('[data-map-status]');
-  frame.src=frame.dataset.src;frame.hidden=false;mapButton.hidden=true;status.hidden=false;
-  frame.addEventListener('load',()=>{status.hidden=true;},{once:true});reachMetrikaGoal('map_open');
-});
+document.querySelector('[data-lot-map] iframe')?.addEventListener('load',()=>reachMetrikaGoal('map_open'),{once:true});
 
 const sticky=document.querySelector('[data-sticky-cta]');
 const mobileBar=document.querySelector('[data-mobile-contact-bar]');
