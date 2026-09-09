@@ -21,6 +21,17 @@
 .lot-concept__full img{display:block;max-height:none;object-fit:cover}
 .lot-concept__caption{gap:16px 40px;padding-block:22px}
 .lot-concept__caption .section-next{grid-column:1/-1;margin:0;padding-top:12px}
+@media(min-width:901px){
+ .lot-concept{height:calc(100svh - 160px);min-height:620px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:18px;padding-bottom:0}
+ .lot-concept .lot-heading{margin-bottom:12px}
+ .lot-concept .lot-heading h2{font-size:clamp(38px,3vw,54px)}
+ .lot-concept .lot-heading>p{padding-top:38px;font-size:18px}
+ .lot-concept__full{position:relative;min-height:0;display:block}
+ .lot-concept__full img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none;max-height:none;object-fit:contain}
+ .lot-concept__caption{padding-block:8px 12px}
+ .lot-concept__caption p{font-size:14px}
+ .lot-concept__caption .section-next{padding-top:8px}
+}
 .lot-context{padding-bottom:0}
 .transition-rail{display:block;background:var(--lot-deep);color:#d6ddd6;text-decoration:none;margin-top:26px;padding-block:23px;font-size:16px}
 .transition-rail>.lot-container{display:block}
