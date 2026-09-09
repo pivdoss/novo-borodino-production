@@ -6,8 +6,8 @@ export default {
     "smallWidth": 800
   },
   "concept-scheme": {
-    "width": 1652,
-    "height": 952
+    "width": 1980,
+    "height": 1106
   },
   "territory/territory-slide-01": {
     "width": 1448,
