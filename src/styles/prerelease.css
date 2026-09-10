@@ -118,6 +118,3 @@
 /* Accent all underlined text actions consistently. */
 .lot-text-link{border-bottom:2px solid #a6573c}
 .lot-hero .lot-text-link{border-color:#a6573c}
-
-/* One accent colour for all emphasized heading fragments. */
-.lot-hero h1 em,.lot-section--ink em,.lot-render-conveyor em,.lot-contact em,.lot-location em,h1 em,h2 em,h3 em{color:#985038}
