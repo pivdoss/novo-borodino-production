@@ -111,3 +111,6 @@
  .lot-render-conveyor{padding-bottom:24px}.lot-location__editorial{padding-block:52px}.lot-faq{padding-block:52px}.lot-faq__intro{margin-bottom:28px}.lot-faq__intro h2{font-size:42px}.lot-faq__intro>p:not(.lot-kicker){font-size:17px;margin-top:20px}.lot-faq__list{width:100%}
  .lot-contact{padding-block:60px}.lot-contact h2{font-size:40px}.lot-lightbox .zoom-controls{left:8px}
 }
+
+/* Warm paper tone used consistently across light sections. */
+.lot-context,.lot-section--paper,.lot-concept__full,.project-next{background:#e7e2d7}
