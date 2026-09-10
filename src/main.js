@@ -258,7 +258,6 @@ document.querySelectorAll('[data-contact-choice-open]').forEach(trigger=>trigger
   for (const channel of ['whatsapp','telegram']) {
     contactChoice.querySelector('[data-choice-channel="'+channel+'"]').href=withMessage(contacts[channel+'Url'], message);
   }
-  contactChoice.querySelector('[data-contact-choice-copy]').textContent=message;
   contactChoice.showModal();document.body.style.overflow='hidden';updateSticky();
 }));
 contactChoice?.querySelector('[data-contact-choice-close]').addEventListener('click',()=>contactChoice.close());
