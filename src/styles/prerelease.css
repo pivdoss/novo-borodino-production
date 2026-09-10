@@ -120,4 +120,4 @@
 .lot-hero .lot-text-link{border-color:#a6573c}
 
 /* One accent colour for all emphasized heading fragments. */
-h1 em,h2 em,h3 em{color:#985038}
+.lot-hero h1 em,.lot-section--ink em,.lot-render-conveyor em,.lot-contact em,.lot-location em,h1 em,h2 em,h3 em{color:#985038}
