@@ -2,7 +2,7 @@ import { chapters } from './data/chapters.js';
 
 export const investorHero = `
 <section class="lot-hero" id="top" aria-labelledby="page-title">
-  <img src="/images/hero-novoe-borodino.webp" alt="Земельный массив Новое Бородино с высоты" width="1280" height="960" fetchpriority="high">
+  <img src="/images/hero-vivid.webp" alt="Земельный массив Новое Бородино с высоты" width="1280" height="960" fetchpriority="high">
   <div class="lot-hero__shade"></div><div class="lot-container lot-hero__content">
     <p class="lot-kicker">Земельный актив · Можайский район</p>
     <h1 id="page-title">Большой проект не собирают<br> <em>из маленьких решений.</em></h1>
