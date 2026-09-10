@@ -133,5 +133,5 @@
 .lot-concept__full{cursor:zoom-in}
 .lot-concept__full:hover img{filter:saturate(1.06) contrast(1.03)}
 .lot-concept__full img{transition:filter .2s ease}
-.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.62),rgba(12,25,19,.38) 50%,rgba(12,25,19,.06))}
-@media(max-width:760px){.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.68),rgba(12,25,19,.34))}}
+.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.48),rgba(12,25,19,.22) 50%,rgba(12,25,19,.02))}
+@media(max-width:760px){.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.54),rgba(12,25,19,.18))}}
