@@ -6,7 +6,7 @@ export const contacts = Object.freeze({
   managerName: 'Отдел продаж',
   phone: '+7 903 777-17-26',
   whatsappUrl: 'https://wa.me/qr/LJ2PJX2QVCAUF1',
-  telegramUrl: 'https://t.me/EKATERINAXAB',
+  telegramUrl: 'https://t.me/KPNovoeborodino',
   maxUrl: 'https://max.ru/u/f9LHodD0cOIKyq_lGjltM2c8n8brktf8TcPF8ScEJBo2TlSHtoIMWxoL8Vc',
 });
 
