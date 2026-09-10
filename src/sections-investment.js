@@ -8,7 +8,7 @@ export const investorHero = `
     <h1 id="page-title">Большой проект не собирают<br> <em>из маленьких решений.</em></h1>
     <p class="lot-hero__lead">Земельный массив 6,2 га в Новом Бородино: 71 размежёванный участок и 1 га внутренних дорог продаются единым лотом от собственника.</p>
     <div class="lot-hero__offer"><strong>55 млн ₽</strong><span>единый лот<br>105 км от МКАД · 20 км до Можайска</span></div>
-    <div class="lot-actions"><button class="lot-button lot-button--accent" type="button" data-contact-choice-open data-contact-context="hero" data-event="presentation_request">Получить документы и схему ↗</button><a class="lot-text-link lot-text-link--light" href="#asset">Понять состав лота ↓</a></div>
+    <div class="lot-actions"><button class="lot-button lot-button--accent" type="button" data-contact-choice-open data-contact-context="hero" data-event="presentation_request">Наши контакты ↗</button><a class="lot-text-link lot-text-link--light" href="#asset">Понять состав лота ↓</a></div>
     <p class="lot-hero__cta-note">Материалы предоставляет отдел продаж. Выберите удобный способ связи.</p>
   </div><div class="lot-hero__bottom lot-container"><span>Предложение для девелопера и инвестора</span><a href="#asset">Состав предложения ↓</a></div>
 </section>`;
