@@ -33,7 +33,7 @@ jobs:
           SITE_INDEXABLE: 'true'
           SITE_BASE: /novo-borodino-production/
         run: pnpm run build
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
