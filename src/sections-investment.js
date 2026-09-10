@@ -26,5 +26,4 @@ export const diligence = `
     <article role="listitem"><span>Электросети заведены</span><h3>Электроснабжение</h3><p>Электросети заведены на территорию и переданы на баланс Россетей для обслуживания.</p></article>
     <article role="listitem"><span>Следующий этап проекта</span><h3>Водоснабжение и водоотведение</h3><p>Инженерную схему воды и водоотведения будущий девелопер определяет в рамках проектирования посёлка.</p></article>
   </div>
-  <div class="cta-rail"><p>Выписки · дороги · электроснабжение · Минкультура · археология</p><button class="lot-text-link" type="button" data-contact-choice-open data-contact-context="diligence" data-event="lead_due_diligence">Получить пакет документов ↗</button></div>
 </div></section>`;

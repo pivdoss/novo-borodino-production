@@ -9,8 +9,9 @@
 .lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1120px}
 .lot-hero h1 em{white-space:normal}
 .lot-hero__cta-note{max-width:620px;font-size:15px;line-height:1.55;color:#cfd5cb}
-.lot-header__inner{gap:22px}
-.lot-nav{gap:22px}
+.lot-header__inner{position:relative;gap:22px}
+.lot-nav{position:absolute;left:50%;transform:translateX(-50%);gap:22px}
+.lot-header__contacts{margin-left:auto;display:flex;align-items:center;gap:18px}
 .lot-header__cta{background:transparent;color:var(--lot-ink);font-size:14px}
 .asset-metrics{padding-block:26px}
 .asset-summary{justify-content:flex-end;margin-top:18px}
@@ -95,7 +96,7 @@
 .zoom-controls button{min-width:44px;min-height:40px;border:1px solid #8a998d;background:transparent;color:#fff}
 .lightbox-scroll{overflow:auto;max-height:calc(90dvh - 140px);touch-action:pan-x pan-y pinch-zoom}
 .lightbox-scroll.is-zoomed img{max-width:none;max-height:none;width:var(--zoom-width);cursor:grab}
-@media(max-width:1200px){.lot-nav{gap:14px}.lot-header__inner{gap:16px}.lot-header__cta{padding-inline:12px}.fact-status article{grid-template-columns:130px 1fr 1.2fr;gap:22px}}
+@media(max-width:1200px){.lot-nav{gap:14px}.lot-header__inner{gap:16px}.lot-header__contacts{gap:12px}.lot-header__cta{padding-inline:12px}.fact-status article{grid-template-columns:130px 1fr 1.2fr;gap:22px}}
 @media(max-width:900px){.functional .lot-heading,.lot-concept .lot-heading,.lot-materials__inner{grid-template-columns:1fr}.functional .lot-heading>p{padding-top:0}.fact-status article{grid-template-columns:120px 1fr}.fact-status p{grid-column:2}.cta-rail{align-items:flex-start;flex-direction:column;gap:14px}.lot-faq__intro{margin-bottom:34px}.lot-hero{min-height:0}}
 @media(max-width:760px){
  .lot-section{padding-block:52px}.lot-heading{margin-bottom:26px}.functional h2{font-size:clamp(34px,9vw,44px)}
