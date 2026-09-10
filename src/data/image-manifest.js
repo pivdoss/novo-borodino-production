@@ -11,35 +11,23 @@ export default {
     "width": 1980,
     "height": 1106
   },
-  "territory/territory-slide-01": {
-    "width": 1448,
-    "height": 1086,
-    "small": "/images/responsive/territory-territory-slide-01-800.webp",
-    "smallWidth": 800
+  "territory/territory-slide-2026-01": {
+    "width": 2400,
+    "height": 1350,
+    "small": "/images/responsive/territory-slide-2026-01-900.webp",
+    "smallWidth": 900
   },
-  "territory/territory-slide-02": {
-    "width": 1601,
-    "height": 983,
-    "small": "/images/responsive/territory-territory-slide-02-800.webp",
-    "smallWidth": 800
+  "territory/territory-slide-2026-02": {
+    "width": 2400,
+    "height": 1350,
+    "small": "/images/responsive/territory-slide-2026-02-900.webp",
+    "smallWidth": 900
   },
-  "territory/territory-slide-03": {
-    "width": 1448,
-    "height": 1086,
-    "small": "/images/responsive/territory-territory-slide-03-800.webp",
-    "smallWidth": 800
-  },
-  "territory/territory-slide-05": {
-    "width": 1511,
-    "height": 1041,
-    "small": "/images/responsive/territory-territory-slide-05-800.webp",
-    "smallWidth": 800
-  },
-  "territory/territory-slide-06": {
-    "width": 1448,
-    "height": 1086,
-    "small": "/images/responsive/territory-territory-slide-06-800.webp",
-    "smallWidth": 800
+  "territory/territory-slide-2026-03": {
+    "width": 2400,
+    "height": 1350,
+    "small": "/images/responsive/territory-slide-2026-03-900.webp",
+    "smallWidth": 900
   },
   "actual-gallery/actual-01": {
     "width": 1800,
