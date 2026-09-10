@@ -11,12 +11,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // GitHub Pages may keep an HTML document in a browser cache while a
-        // new deployment replaces hashed assets. A stable stylesheet path
-        // prevents the page from rendering without its design across updates.
-        assetFileNames: (asset) => asset.name?.endsWith('.css')
-          ? 'assets/main.css'
-          : 'assets/[name]-[hash][extname]',
+        // Fingerprint every asset so a freshly published visual change cannot
+        // be masked by a browser cache of an earlier stylesheet.
+        assetFileNames: 'assets/[name]-[hash][extname]',
       },
       input: {
         home: input('index.html'),
