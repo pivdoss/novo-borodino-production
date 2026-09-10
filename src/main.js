@@ -106,14 +106,30 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   pauseButton?.addEventListener('click', () => { paused = !paused; sync(); });
   viewport.addEventListener('keydown', event => { if (['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1); } });
   viewport.addEventListener('dragstart', event => event.preventDefault());
-  viewport.addEventListener('pointerdown', event => { if (!event.isPrimary || event.button !== 0) return; drag = { id:event.pointerId, x:event.clientX, y:event.clientY, start:offset }; stop(); });
+  viewport.addEventListener('pointerdown', event => {
+    if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    drag = { id:event.pointerId, x:event.clientX, y:event.clientY, start:offset };
+    stop();
+  });
   viewport.addEventListener('pointermove', event => {
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX-drag.x, dy = event.clientY-drag.y;
     if (!drag.horizontal && Math.abs(dx)>8 && Math.abs(dx)>Math.abs(dy)) { drag.horizontal = true; viewport.setPointerCapture(event.pointerId); viewport.classList.add('is-dragging'); }
     if (drag.horizontal) { event.preventDefault(); offset = drag.start-dx; paint(); }
-  });
-  const finish = () => { drag = undefined; viewport.classList.remove('is-dragging'); sync(); };
+  }, { passive:false });
+  const finish = event => {
+    if (!drag || (event?.pointerId && event.pointerId !== drag.id)) return;
+    const distance = (event?.clientX ?? drag.x) - drag.x;
+    if (drag.horizontal) {
+      if (Math.abs(distance) >= 36) offset = drag.start + (distance < 0 ? loop / originals.length : -loop / originals.length);
+      else offset = drag.start;
+      paused = true;
+      paint();
+    }
+    drag = undefined;
+    viewport.classList.remove('is-dragging');
+    sync();
+  };
   viewport.addEventListener('pointerup', finish); viewport.addEventListener('pointercancel', finish); viewport.addEventListener('lostpointercapture', finish);
   new ResizeObserver(measure).observe(viewport);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, {threshold:.1}).observe(viewport);
@@ -155,13 +171,13 @@ if (slider) {
   pauseButton.addEventListener('click',()=>{paused=!paused;sync();});
   slider.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();step(event.key==='ArrowRight'?1:-1);sync();}});
   viewport.addEventListener('dragstart',event=>event.preventDefault());
-  viewport.addEventListener('pointerdown',event=>{if(!event.isPrimary || event.button!==0 || locked)return;drag={id:event.pointerId,x:event.clientX,y:event.clientY};sync();});
+  viewport.addEventListener('pointerdown',event=>{if(!event.isPrimary || (event.pointerType==='mouse' && event.button!==0) || locked)return;drag={id:event.pointerId,x:event.clientX,y:event.clientY};sync();});
   viewport.addEventListener('pointermove',event=>{
     if(!drag || drag.id!==event.pointerId)return;
     const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
     if(!drag.horizontal && Math.abs(dx)>10 && Math.abs(dx)>Math.abs(dy)){drag.horizontal=true;viewport.setPointerCapture(event.pointerId);}
     if(drag.horizontal){event.preventDefault();track.style.transition='none';track.style.transform=`translate3d(${viewport.clientWidth/2-(index+.5)*parseFloat(getComputedStyle(slides[0]).width)+dx}px,0,0)`;}
-  });
+  },{passive:false});
   viewport.addEventListener('pointerup',event=>{if(!drag || drag.id!==event.pointerId)return;const dx=event.clientX-drag.x;if(drag.horizontal){suppressClickUntil=Date.now()+400;if(Math.abs(dx)>35)step(dx<0?1:-1);else paint(true);}drag=undefined;sync();});
   viewport.addEventListener('pointercancel',()=>{drag=undefined;paint(false);sync();});
   viewport.addEventListener('click',event=>{if(Date.now()<suppressClickUntil){event.preventDefault();event.stopPropagation();return;}const button=event.target.closest('[data-photo-open]');if(button){openImage(button.querySelector('img'),button.querySelector('.photo-caption').textContent,button);reachMetrikaGoal('gallery_open');}},true);
