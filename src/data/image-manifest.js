@@ -102,6 +102,7 @@ export default {
   "actual-gallery/actual-2026-11": {"width":1920,"height":1440,"small":"/images/responsive/actual-gallery-actual-2026-11-900.webp","smallWidth":900},
   "actual-gallery/actual-2026-12": {"width":1051,"height":719,"small":"/images/responsive/actual-gallery-actual-2026-12-900.webp","smallWidth":900},
   "actual-gallery/actual-2026-13": {"width":1920,"height":1440,"small":"/images/responsive/actual-gallery-actual-2026-13-900.webp","smallWidth":900},
+  "actual-gallery/actual-2026-14": {"width":2200,"height":1650,"small":"/images/responsive/actual-gallery-actual-2026-14-900.webp","smallWidth":900},
   "renders/1": {
     "width": 1800,
     "height": 1005,
