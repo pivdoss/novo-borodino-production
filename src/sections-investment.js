@@ -15,16 +15,16 @@ export const investorHero = `
 
 export const diligence = `
 <section class="lot-section lot-section--ink functional" id="facts" aria-labelledby="facts-title"><div class="lot-container">
-  <div class="lot-heading"><div><p class="lot-kicker">${chapters.facts}</p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, технические условия на электроснабжение, согласования Минкульта и материалы археологических работ.</p></div>
+  <div class="lot-heading"><div><p class="lot-kicker">${chapters.facts}</p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, сведения об электроснабжении, согласования Минкультуры и материалы археологических работ.</p></div>
   <div class="fact-status" role="list">
     <article role="listitem"><span>Сформировано</span><h3>71 участок · 5,2 га</h3><p>Территория размежёвана. Реестр кадастровых номеров и площадей подготовлен.</p></article>
     <article role="listitem"><span>В собственности</span><h3>Внутренние дороги · 1 га</h3><p>Дорожные участки размежёваны, входят в единый лот и передаются вместе с массивом. На территории выполнено твёрдое грунтовое основание.</p></article>
     <article role="listitem"><span>Подтверждено</span><h3>Категория и ВРИ</h3><p>Земли сельскохозяйственного назначения, зона СХ-2, ВРИ 13.2 «Ведение садоводства».</p></article>
-    <article role="listitem"><span>Получено</span><h3>Минкульт</h3><p>Необходимые согласования Минкульта получены. Подтверждающие документы входят в пакет материалов.</p></article>
+    <article role="listitem"><span>Получено</span><h3>Минкультура</h3><p>Необходимые согласования Минкультуры получены. Подтверждающие документы входят в пакет материалов.</p></article>
     <article role="listitem"><span>Завершено</span><h3>Археология</h3><p>Археологическое шурфование завершено. Итоговые материалы готовы к ознакомлению.</p></article>
     <article role="listitem"><span>Подтверждено</span><h3>Права на объект</h3><p>Права на участки и внутренние дороги подтверждены актуальными документами и выписками.</p></article>
-    <article role="listitem"><span>ТУ получены</span><h3>Электроснабжение</h3><p>Электричество заведено на территорию и передано на баланс Россетей для обслуживания.</p></article>
+    <article role="listitem"><span>Электросети заведены</span><h3>Электроснабжение</h3><p>Электросети заведены на территорию и переданы на баланс Россетей для обслуживания.</p></article>
     <article role="listitem"><span>Следующий этап проекта</span><h3>Водоснабжение и водоотведение</h3><p>Инженерную схему воды и водоотведения будущий девелопер определяет в рамках проектирования посёлка.</p></article>
   </div>
-  <div class="cta-rail"><p>Выписки · дороги · электроснабжение · Минкульт · археология</p><button class="lot-text-link" type="button" data-contact-choice-open data-contact-context="diligence" data-event="lead_due_diligence">Получить пакет документов ↗</button></div>
+  <div class="cta-rail"><p>Выписки · дороги · электроснабжение · Минкультура · археология</p><button class="lot-text-link" type="button" data-contact-choice-open data-contact-context="diligence" data-event="lead_due_diligence">Получить пакет документов ↗</button></div>
 </div></section>`;

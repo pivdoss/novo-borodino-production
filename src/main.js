@@ -96,14 +96,14 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   const stop = () => { cancelAnimationFrame(frame); frame = 0; last = 0; };
   const tick = time => { if (last) offset += Math.min(time-last, 50) * .039; last = time; paint(); frame = requestAnimationFrame(tick); };
   const sync = () => {
-    pauseButton.textContent = paused ? 'Продолжить' : 'Пауза'; pauseButton.setAttribute('aria-pressed', String(paused));
+    if (pauseButton) { pauseButton.textContent = paused ? 'Продолжить' : 'Пауза'; pauseButton.setAttribute('aria-pressed', String(paused)); }
     stop();
     if (visible && !paused && !drag && !document.hidden && !dialog?.open && !reducedMotion.matches) frame = requestAnimationFrame(tick);
   };
   const step = direction => { offset += direction * loop / originals.length; paused = true; paint(); sync(); };
-  root.querySelector('[data-conveyor-prev]').addEventListener('click', () => step(-1));
-  root.querySelector('[data-conveyor-next]').addEventListener('click', () => step(1));
-  pauseButton.addEventListener('click', () => { paused = !paused; sync(); });
+  root.querySelector('[data-conveyor-prev]')?.addEventListener('click', () => step(-1));
+  root.querySelector('[data-conveyor-next]')?.addEventListener('click', () => step(1));
+  pauseButton?.addEventListener('click', () => { paused = !paused; sync(); });
   viewport.addEventListener('keydown', event => { if (['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1); } });
   viewport.addEventListener('dragstart', event => event.preventDefault());
   viewport.addEventListener('pointerdown', event => { if (!event.isPrimary || event.button !== 0) return; drag = { id:event.pointerId, x:event.clientX, y:event.clientY, start:offset }; stop(); });
@@ -209,7 +209,7 @@ let choiceTrigger;
 const contactRequests={
   hero:'Здравствуйте! Интересуют документы и схема земельного массива 6,2 га в Новом Бородино.',
   diligence:'Здравствуйте! Хочу ознакомиться с документами по земельному массиву 6,2 га.',
-  engineering:'Здравствуйте! Пришлите, пожалуйста, реестр участков и технические условия по массиву 6,2 га.',
+  engineering:'Здравствуйте! Пришлите, пожалуйста, реестр участков и сведения об электроснабжении массива 6,2 га.',
   materials:'Здравствуйте! Хочу получить документы и схему земельного массива 6,2 га.',
   viewing:'Здравствуйте! Хочу обсудить просмотр земельного массива 6,2 га в Новом Бородино.'
 };
