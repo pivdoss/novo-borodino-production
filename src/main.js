@@ -102,28 +102,50 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   viewport.addEventListener('keydown', event => { if (['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1); } });
   viewport.addEventListener('dragstart', event => event.preventDefault());
   viewport.addEventListener('pointerdown', event => {
-    if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
-    drag = { id:event.pointerId, x:event.clientX, y:event.clientY, start:offset };
+    if (!event.isPrimary || event.pointerType === 'touch' || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    drag = { type:'pointer', id:event.pointerId, x:event.clientX, y:event.clientY, start:offset };
+    viewport.setPointerCapture(event.pointerId);
   });
   viewport.addEventListener('pointermove', event => {
-    if (!drag || event.pointerId !== drag.id) return;
+    if (!drag || drag.type !== 'pointer' || event.pointerId !== drag.id) return;
     const dx = event.clientX-drag.x, dy = event.clientY-drag.y;
-    if (!drag.horizontal && Math.abs(dx)>8 && Math.abs(dx)>Math.abs(dy)) { drag.horizontal = true; viewport.setPointerCapture(event.pointerId); viewport.classList.add('is-dragging'); stop(); }
-    if (drag.horizontal) { event.preventDefault(); offset = drag.start-dx; paint(); }
-  }, { passive:false });
-  const finish = event => {
-    if (!drag || (event?.pointerId && event.pointerId !== drag.id)) return;
-    const distance = (event?.clientX ?? drag.x) - drag.x;
-    if (drag.horizontal) {
-      if (Math.abs(distance) >= 36) offset = drag.start + (distance < 0 ? loop / originals.length : -loop / originals.length);
-      else offset = drag.start;
-      paint();
+    if (!drag.axis && (Math.abs(dx)>6 || Math.abs(dy)>6)) {
+      drag.axis = Math.abs(dx)>Math.abs(dy) ? 'x' : 'y';
+      if (drag.axis === 'x') { viewport.classList.add('is-dragging'); stop(); }
     }
+    if (drag.axis === 'x') { event.preventDefault(); offset = drag.start-dx; paint(); }
+  }, { passive:false });
+  const finishPointer = event => {
+    if (!drag || drag.type !== 'pointer' || event.pointerId !== drag.id) return;
     drag = undefined;
     viewport.classList.remove('is-dragging');
     sync();
   };
-  viewport.addEventListener('pointerup', finish); viewport.addEventListener('pointercancel', finish); viewport.addEventListener('lostpointercapture', finish);
+  viewport.addEventListener('pointerup', finishPointer); viewport.addEventListener('pointercancel', finishPointer); viewport.addEventListener('lostpointercapture', finishPointer);
+  viewport.addEventListener('touchstart', event => {
+    if (event.touches.length !== 1) return;
+    const touch = event.touches[0];
+    drag = { type:'touch', id:touch.identifier, x:touch.clientX, y:touch.clientY, start:offset };
+  }, { passive:true });
+  viewport.addEventListener('touchmove', event => {
+    if (!drag || drag.type !== 'touch') return;
+    const touch = [...event.touches].find(item => item.identifier === drag.id);
+    if (!touch) return;
+    const dx = touch.clientX-drag.x, dy = touch.clientY-drag.y;
+    if (!drag.axis && (Math.abs(dx)>6 || Math.abs(dy)>6)) {
+      drag.axis = Math.abs(dx)>Math.abs(dy) ? 'x' : 'y';
+      if (drag.axis === 'x') { viewport.classList.add('is-dragging'); stop(); }
+    }
+    if (drag.axis === 'x') { event.preventDefault(); offset = drag.start-dx; paint(); }
+  }, { passive:false });
+  const finishTouch = () => {
+    if (!drag || drag.type !== 'touch') return;
+    drag = undefined;
+    viewport.classList.remove('is-dragging');
+    sync();
+  };
+  viewport.addEventListener('touchend', finishTouch, { passive:true });
+  viewport.addEventListener('touchcancel', finishTouch, { passive:true });
   new ResizeObserver(measure).observe(viewport);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, {threshold:.1}).observe(viewport);
   document.addEventListener('visibilitychange', sync); reducedMotion.addEventListener('change', sync); dialog?.addEventListener('close', sync);
