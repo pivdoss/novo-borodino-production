@@ -22,7 +22,7 @@ const documentMarkup = ({ title, description, route, body, robots = siteIndexabl
   <meta name="theme-color" content="#13382c"><meta name="robots" content="${robots}"><meta name="author" content="Новое Бородино"><meta name="application-name" content="Новое Бородино">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="manifest" href="/site.webmanifest">
   <link rel="alternate" hreflang="ru" href="${absoluteUrl(route)}">
-  ${route === '/' ? '<link rel="preload" as="image" href="/images/hero-novoe-borodino.webp" imagesrcset="/images/responsive/hero-800.webp 800w, /images/hero-novoe-borodino.webp 1536w" imagesizes="100vw" type="image/webp" fetchpriority="high">' : ''}
+  ${route === '/' ? '<link rel="preload" as="image" href="/images/hero-novoe-borodino.webp" type="image/webp" fetchpriority="high">' : ''}
   <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${absoluteUrl(route)}">
   <meta property="og:locale" content="ru_RU"><meta property="og:type" content="website"><meta property="og:site_name" content="Новое Бородино">

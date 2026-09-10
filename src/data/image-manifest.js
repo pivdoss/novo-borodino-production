@@ -1,9 +1,7 @@
 export default {
   "hero-novoe-borodino": {
-    "width": 1536,
-    "height": 1024,
-    "small": "/images/responsive/hero-800.webp",
-    "smallWidth": 800
+    "width": 1280,
+    "height": 960
   },
   "concept-scheme": {
     "width": 1980,
