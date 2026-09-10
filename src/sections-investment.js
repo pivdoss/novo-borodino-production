@@ -15,7 +15,7 @@ export const investorHero = `
 
 export const diligence = `
 <section class="lot-section lot-section--ink functional" id="facts" aria-labelledby="facts-title"><div class="lot-container">
-  <div class="lot-heading"><div><p class="lot-kicker"><span class="chapter-kicker">${chapters.facts}</span></p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, сведения об электроснабжении, согласования Минкультуры и материалы археологических работ.</p></div>
+  <div class="lot-heading"><div><p class="lot-kicker">${chapters.facts}</p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, сведения об электроснабжении, согласования Минкультуры и материалы археологических работ.</p></div>
   <div class="fact-status" role="list">
     <article role="listitem"><span>Сформировано</span><h3>71 участок · 5,2 га</h3><p>Территория размежёвана. Реестр кадастровых номеров и площадей подготовлен.</p></article>
     <article role="listitem"><span>В собственности</span><h3>Внутренние дороги · 1 га</h3><p>Дорожные участки размежёваны, входят в единый лот и передаются вместе с массивом. На территории выполнено твёрдое грунтовое основание.</p></article>
