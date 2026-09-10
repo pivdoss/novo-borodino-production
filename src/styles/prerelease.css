@@ -124,7 +124,4 @@
 .lot-section--ink .lot-kicker,.lot-section--ink .fact-status article>span,.lot-section--ink .copy-accent{color:#dcc9ac}
 #facts .lot-kicker{color:#d3a38c}
 .territory-slider,.render-conveyor,.actual-slider,.actual-slider__viewport{touch-action:pan-y}
-.territory-slider,.render-conveyor{overflow-x:auto;overflow-y:hidden;touch-action:pan-x pan-y pinch-zoom;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab}
-.territory-slider::-webkit-scrollbar,.render-conveyor::-webkit-scrollbar{display:none}
-.territory-slider .conveyor-track,.render-conveyor .conveyor-track{transform:none!important}
-.territory-slider .conveyor-track figure,.render-conveyor .conveyor-track figure{scroll-snap-align:start;scroll-snap-stop:always}
+.territory-slider,.render-conveyor{overflow:hidden;touch-action:pan-y pinch-zoom;scroll-snap-type:none}

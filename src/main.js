@@ -108,7 +108,7 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   viewport.addEventListener('pointermove', event => {
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX-drag.x, dy = event.clientY-drag.y;
-    if (!drag.horizontal && Math.abs(dx)>8 && Math.abs(dx)>Math.abs(dy)) { drag.horizontal = true; viewport.setPointerCapture(event.pointerId); viewport.classList.add('is-dragging'); }
+    if (!drag.horizontal && Math.abs(dx)>8 && Math.abs(dx)>Math.abs(dy)) { drag.horizontal = true; viewport.setPointerCapture(event.pointerId); viewport.classList.add('is-dragging'); stop(); }
     if (drag.horizontal) { event.preventDefault(); offset = drag.start-dx; paint(); }
   }, { passive:false });
   const finish = event => {
