@@ -53,7 +53,15 @@ if(dialog){
   zoomFrame.addEventListener('pointermove',event=>{if(pan){zoomFrame.scrollLeft=pan.left+pan.x-event.clientX;zoomFrame.scrollTop=pan.top+pan.y-event.clientY;}});
   for(const name of ['pointerup','pointercancel','lostpointercapture'])zoomFrame.addEventListener(name,()=>{pan=undefined;});
 }
-document.querySelector('[data-concept-open]')?.addEventListener('click', event => openImage(document.querySelector('[data-concept-canvas] img'), '71 участок · 5,2 га + 1 га внутренних дорог.', event.currentTarget));
+const conceptCanvas = document.querySelector('[data-concept-canvas]');
+const openConcept = () => openImage(conceptCanvas?.querySelector('img'), '71 участок · 5,2 га + 1 га внутренних дорог.', conceptCanvas);
+if (conceptCanvas) {
+  conceptCanvas.tabIndex = 0;
+  conceptCanvas.setAttribute('role', 'button');
+  conceptCanvas.setAttribute('aria-label', 'Открыть схему массива на весь экран');
+  conceptCanvas.addEventListener('click', openConcept);
+  conceptCanvas.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openConcept(); } });
+}
 
 const menuButton = document.querySelector('[data-lot-menu]');
 const menu = document.querySelector('#lot-mobile-menu');

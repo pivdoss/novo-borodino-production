@@ -25,5 +25,7 @@ export const prepareLandingMarkup = (markup) => markerReplacements
   .replace(/\s*<div class="lot-container lot-concept__caption">[\s\S]*?<\/div><\/section>/, '</section>')
   .replace(/\s*<a class="transition-rail" href="#facts"><span class="lot-container">[\s\S]*?<\/span><\/a>/, '')
   .replace('Документы дают факты. Визуализации показывают потенциал. ↓', 'Посмотреть возможный сценарий развития ↓')
+  .replace('1,5–2 км до побережья Можайского водохранилища.', '1,5 км до побережья Можайского водохранилища.')
+  .replace('<div class="lot-container actual-slider__controls"><button type="button" data-actual-prev aria-label="Предыдущее фото">‹</button><span data-actual-count aria-live="off">01 / 09</span><button type="button" data-actual-pause aria-pressed="false">Пауза</button><button type="button" data-actual-next aria-label="Следующее фото">›</button></div>', '<div class="lot-container actual-slider__controls"><div class="actual-slider__buttons"><button type="button" data-actual-prev aria-label="Предыдущее фото">‹</button><button type="button" data-actual-pause aria-pressed="false">Пауза</button><button type="button" data-actual-next aria-label="Следующее фото">›</button></div><span data-actual-count aria-live="off">01 / 09</span></div>')
   .replace(/\s*<a class="section-next" href="#location">[\s\S]*?<\/a>/, '')
   .replace(/\s*<a class="section-next" href="#actual">[\s\S]*?<\/a>/, '');

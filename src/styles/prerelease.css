@@ -125,3 +125,11 @@
 #facts .lot-kicker{color:#d3a38c}
 .territory-slider,.render-conveyor,.actual-slider,.actual-slider__viewport{touch-action:pan-y}
 .territory-slider,.render-conveyor{overflow:hidden;touch-action:pan-y pinch-zoom;scroll-snap-type:none}
+.actual-slider__controls{flex-direction:column;gap:10px}
+.actual-slider__buttons{display:flex;align-items:center;justify-content:center;gap:16px}
+.actual-slider__controls>span{order:2}
+.contact-choice__links>a{transition:color .2s ease,background-color .2s ease,border-color .2s ease}
+.contact-choice__links>a:hover,.contact-choice__links>a:focus-visible{color:#a6573c;background:#a6573c12;border-color:#a6573c}
+.lot-concept__full{cursor:zoom-in}
+.lot-concept__full:hover img{filter:saturate(1.06) contrast(1.03)}
+.lot-concept__full img{transition:filter .2s ease}
