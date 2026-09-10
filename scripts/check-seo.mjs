@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { siteUrl, publicRoutes, siteIndexable } from './site-config.mjs';
+import { siteUrl, siteBase, publicRoutes, siteIndexable } from './site-config.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const buildRoot = path.join(projectRoot, 'dist');
@@ -62,7 +62,9 @@ for (const route of publicRoutes) {
 }
 
 for (const reference of referencedPaths) {
-  const relative = reference.replace(/^\//, '');
+  const relative = reference.startsWith(siteBase)
+    ? reference.slice(siteBase.length).replace(/^\//, '')
+    : reference.replace(/^\//, '');
   const target = reference.endsWith('/')
     ? path.join(buildRoot, relative, 'index.html')
     : path.join(buildRoot, relative);
