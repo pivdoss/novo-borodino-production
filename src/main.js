@@ -3,7 +3,7 @@ import './styles/lot-landing.css';
 import './styles/investment.css';
 import './styles/prerelease.css';
 import { initAnalyticsConsent, reachMetrikaGoal } from './analytics.js';
-import { contacts } from './data/contacts.js';
+import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const dialog = document.querySelector('[data-lightbox-dialog]');
@@ -217,9 +217,7 @@ document.querySelectorAll('[data-contact-choice-open]').forEach(trigger=>trigger
   choiceTrigger=event.currentTarget;
   const message=contactRequests[choiceTrigger.dataset.contactContext]||contactRequests.materials;
   for (const channel of ['whatsapp','telegram']) {
-    const url=new URL(contacts[channel+'Url']);
-    url.searchParams.set('text',message);
-    contactChoice.querySelector('[data-choice-channel="'+channel+'"]').href=url.href;
+    contactChoice.querySelector('[data-choice-channel="'+channel+'"]').href=withMessage(contacts[channel+'Url'], message);
   }
   contactChoice.querySelector('[data-contact-choice-copy]').textContent=message;
   contactChoice.showModal();document.body.style.overflow='hidden';updateSticky();

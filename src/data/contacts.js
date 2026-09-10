@@ -18,9 +18,8 @@ export const offerMessage = (offer = '') => offer
   ? `Здравствуйте! Меня интересует: ${offer}.`
   : 'Здравствуйте! Меня интересует предложение «Новое Бородино».';
 
-export const withOfferMessage = (url, offer = '') => {
+export const withMessage = (url, message = '') => {
   if (!url) return '';
-  const message = offerMessage(offer);
   try {
     const link = new URL(url);
     // QR links are provided by WhatsApp as complete redirect URLs and must
@@ -34,3 +33,5 @@ export const withOfferMessage = (url, offer = '') => {
     return url;
   }
 };
+
+export const withOfferMessage = (url, offer = '') => withMessage(url, offerMessage(offer));

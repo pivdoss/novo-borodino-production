@@ -1,11 +1,15 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const html=await fs.readFile('dist/index.html','utf8');
+const cookieHtml=await fs.readFile('dist/cookie-i-analitika/index.html','utf8');
+const publicHtml=`${html}\n${cookieHtml}`;
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
 for(const [,id] of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(id),`missing anchor ${id}`);
 assert(!/<form\b|<input\b|about:invalid|localhost:4173/.test(html),'invalid release markup');
 for(const [,phone] of html.matchAll(/href="(tel:[^"]+)"/g))assert.equal(phone,'tel:+79037771726');
+assert(!/79855507679|EKATERINAXAB|Екатерина/i.test(publicHtml),'outdated contact data found in production HTML');
+for(const expected of ['+7 903 777-17-26','https://wa.me/qr/LJ2PJX2QVCAUF1','https://t.me/KPNovoeborodino','https://max.ru/u/f9LHodD0cOIKyq_lGjltM2c8n8brktf8TcPF8ScEJBo2TlSHtoIMWxoL8Vc'])assert(publicHtml.includes(expected),`missing current contact: ${expected}`);
 const resources=new Set([...html.matchAll(/\/images\/[a-zA-Z0-9_./-]+\.webp/g)].map(m=>m[0]));
 for(const resource of resources)await fs.access('dist'+resource);
 assert.equal([...resources].filter(p=>/^\/images\/actual-gallery\//.test(p)).length,10);

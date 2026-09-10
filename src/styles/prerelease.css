@@ -4,11 +4,11 @@
 .functional h2{font-size:clamp(40px,3.4vw,60px);line-height:1.07;letter-spacing:-.035em}
 .functional .lot-heading{grid-template-columns:minmax(0,1fr) minmax(420px,.92fr);align-items:start;gap:10%}
 .functional .lot-heading>p{max-width:640px;padding-top:46px;font-size:clamp(19px,1.35vw,22px);line-height:1.48}
-.lot-hero{min-height:0}
+.lot-hero{min-height:min(880px,100svh)}
 .lot-hero__content{padding-block:76px 56px}
-.lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1180px}
+.lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1120px}
 .lot-hero h1 em{white-space:normal}
-.lot-hero__cta-note{max-width:620px;font-size:16px;line-height:1.55}
+.lot-hero__cta-note{max-width:620px;font-size:15px;line-height:1.55;color:#cfd5cb}
 .lot-header__inner{gap:22px}
 .lot-nav{gap:22px}
 .lot-header__cta{background:transparent;color:var(--lot-ink);font-size:14px}

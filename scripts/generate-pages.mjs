@@ -5,6 +5,7 @@ import { siteUrl, publicRoutes, siteIndexable } from './site-config.mjs';
 import { faq, asset } from '../src/data/asset.js';
 import { landingMarkup } from '../src/lot-landing.js';
 import { contacts, phoneHref } from '../src/data/contacts.js';
+import { prepareLandingMarkup } from '../src/data/prepare-landing.js';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDirectory = path.join(projectRoot, 'public');
@@ -55,7 +56,7 @@ const notFound = `<!doctype html><html lang="ru"><head><meta charset="UTF-8"><me
 
 await fs.mkdir(path.join(projectRoot, 'cookie-i-analitika'), { recursive: true });
 await fs.writeFile(path.join(projectRoot, 'index.html'), documentMarkup({
-  title: siteTitle, description: siteDescription, route: '/', body: landingMarkup(),
+  title: siteTitle, description: siteDescription, route: '/', body: prepareLandingMarkup(landingMarkup()),
   schemas: [organization, listing, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q,a]) => ({'@type':'Question', name:q, acceptedAnswer:{'@type':'Answer', text:a}})) }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Новое Бородино', url: absoluteUrl('/') }, { '@context': 'https://schema.org', '@type': 'WebPage', name: siteTitle, description: siteDescription, url: absoluteUrl('/'), image: absoluteUrl('/images/hero-novoe-borodino.webp'), mainEntity: { '@id': `${absoluteUrl('/')}#listing` } }],
 }));
 await fs.writeFile(path.join(projectRoot, 'cookie-i-analitika', 'index.html'), documentMarkup({

@@ -1,0 +1,21 @@
+import { chapters } from './chapters.js';
+
+const markerReplacements = Object.freeze([
+  ['01 / Состав предложения', chapters.asset],
+  ['02 / Схема массива', chapters.concept],
+  ['Территория с высоты', chapters.territory],
+  ['03 / Юридическая готовность', chapters.facts],
+  ['Для предметного разговора', chapters.materials],
+  ['05 / Возможный сценарий', chapters.visualizations],
+  ['07 / Локация', chapters.location],
+  ['08 / Территория сегодня', chapters.actual],
+  ['Перед первым разговором', chapters.questions],
+  ['09 / Личный контакт', chapters.contacts],
+]);
+
+export const prepareLandingMarkup = (markup) => markerReplacements
+  .reduce((output, [source, label]) => output.replace(source, label), markup)
+  .replace(/\s*<a class="transition-rail" href="#facts"><span class="lot-container">[\s\S]*?<\/span><\/a>/, '')
+  .replace('Документы дают факты. Визуализации показывают потенциал. ↓', 'Посмотреть возможный сценарий развития ↓')
+  .replace(/\s*<a class="section-next" href="#location">[\s\S]*?<\/a>/, '')
+  .replace(/\s*<a class="section-next" href="#actual">[\s\S]*?<\/a>/, '');

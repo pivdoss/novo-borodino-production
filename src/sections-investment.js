@@ -1,3 +1,5 @@
+import { chapters } from './data/chapters.js';
+
 export const investorHero = `
 <section class="lot-hero" id="top" aria-labelledby="page-title">
   <img src="/images/hero-novoe-borodino.webp" srcset="/images/responsive/hero-800.webp 800w, /images/hero-novoe-borodino.webp 1536w" sizes="100vw" alt="Земельный массив Новое Бородино с высоты" width="1536" height="1024" fetchpriority="high">
@@ -13,7 +15,7 @@ export const investorHero = `
 
 export const diligence = `
 <section class="lot-section lot-section--ink functional" id="facts" aria-labelledby="facts-title"><div class="lot-container">
-  <div class="lot-heading"><div><p class="lot-kicker">03 / Юридическая готовность</p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, технические условия на электроснабжение, согласования Минкульта и материалы археологических работ.</p></div>
+  <div class="lot-heading"><div><p class="lot-kicker">${chapters.facts}</p><h2 id="facts-title">Документы собраны.<br>Ключевые согласования получены.</h2></div><p>По объекту подготовлен комплект подтверждающих материалов: реестр 71 участка, актуальные выписки, документы на внутренние дороги, технические условия на электроснабжение, согласования Минкульта и материалы археологических работ.</p></div>
   <div class="fact-status" role="list">
     <article role="listitem"><span>Сформировано</span><h3>71 участок · 5,2 га</h3><p>Территория размежёвана. Реестр кадастровых номеров и площадей подготовлен.</p></article>
     <article role="listitem"><span>В собственности</span><h3>Внутренние дороги · 1 га</h3><p>Дорожные участки размежёваны, входят в единый лот и передаются вместе с массивом. На территории выполнено твёрдое грунтовое основание.</p></article>
@@ -25,5 +27,4 @@ export const diligence = `
     <article role="listitem"><span>Следующий этап проекта</span><h3>Водоснабжение и водоотведение</h3><p>Инженерную схему воды и водоотведения будущий девелопер определяет в рамках проектирования посёлка.</p></article>
   </div>
   <div class="cta-rail"><p>Выписки · дороги · электроснабжение · Минкульт · археология</p><button class="lot-text-link" type="button" data-contact-choice-open data-contact-context="diligence" data-event="lead_due_diligence">Получить пакет документов ↗</button></div>
-  <a class="section-next" href="#materials">Документы собраны. Далее — пакет материалов для предметного разговора. <span aria-hidden="true">↓</span></a>
 </div></section>`;
