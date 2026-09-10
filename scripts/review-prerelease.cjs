@@ -25,7 +25,7 @@ const fs=require('node:fs');
  await page.locator('#top [data-contact-choice-open]').click();
  if(!await page.locator('[data-contact-choice]').evaluate(e=>e.open))failures.push('Contact dialog failed');
  const wa=await page.locator('[data-choice-channel="whatsapp"]').getAttribute('href');
- if(!new URL(wa).searchParams.get('text').startsWith('Здравствуйте! Интересуют'))failures.push('Wrong message');
+ if(new URL(wa).searchParams.get('text')!=='Здравствуйте! Интересует земельный массив «Новое Бородино».')failures.push('Wrong message');
  await page.keyboard.press('Escape');
  await page.locator('[data-concept-open]').click();
  await page.locator('[data-zoom="in"]').click();

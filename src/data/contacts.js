@@ -14,9 +14,7 @@ export const hasContact = (type) => Boolean(contacts[type]?.trim());
 
 export const phoneHref = hasContact('phone') ? `tel:${contacts.phone.replace(/[^\d+]/g, '')}` : '';
 
-export const offerMessage = (offer = '') => offer
-  ? `Здравствуйте! Меня интересует: ${offer}.`
-  : 'Здравствуйте! Меня интересует предложение «Новое Бородино».';
+export const offerMessage = () => 'Здравствуйте! Интересует земельный массив «Новое Бородино».';
 
 export const withMessage = (url, message = '') => {
   if (!url) return '';

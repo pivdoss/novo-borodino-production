@@ -246,11 +246,11 @@ initAnalyticsConsent();updateSticky();
 const contactChoice=document.querySelector('[data-contact-choice]');
 let choiceTrigger;
 const contactRequests={
-  hero:'Здравствуйте! Интересуют документы и схема земельного массива 6,2 га в Новом Бородино.',
-  diligence:'Здравствуйте! Хочу ознакомиться с документами по земельному массиву 6,2 га.',
-  engineering:'Здравствуйте! Пришлите, пожалуйста, реестр участков и сведения об электроснабжении массива 6,2 га.',
-  materials:'Здравствуйте! Хочу получить документы и схему земельного массива 6,2 га.',
-  viewing:'Здравствуйте! Хочу обсудить просмотр земельного массива 6,2 га в Новом Бородино.'
+  hero:'Здравствуйте! Интересует земельный массив «Новое Бородино».',
+  diligence:'Здравствуйте! Интересует земельный массив «Новое Бородино».',
+  engineering:'Здравствуйте! Интересует земельный массив «Новое Бородино».',
+  materials:'Здравствуйте! Интересует земельный массив «Новое Бородино».',
+  viewing:'Здравствуйте! Интересует земельный массив «Новое Бородино».'
 };
 document.querySelectorAll('[data-contact-choice-open]').forEach(trigger=>trigger.addEventListener('click',event=>{
   choiceTrigger=event.currentTarget;
