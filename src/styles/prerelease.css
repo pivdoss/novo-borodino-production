@@ -114,3 +114,7 @@
 
 /* Warm paper tone used consistently across light sections. */
 .lot-context,.lot-section--paper,.lot-concept__full,.project-next{background:#e7e2d7}
+
+/* Accent all underlined text actions consistently. */
+.lot-text-link{border-bottom:2px solid #a6573c}
+.lot-hero .lot-text-link{border-color:#a6573c}
