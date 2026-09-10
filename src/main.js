@@ -89,27 +89,21 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
   if (originals.length < 2) return;
   const clones = originals.map(slide => { const clone = slide.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); clone.inert = true; clone.querySelectorAll('img').forEach(img => img.alt = ''); return clone; });
   track.append(...clones);
-  let offset = 0, loop = 0, frame = 0, last = 0, visible = false, drag, paused = reducedMotion.matches;
-  const pauseButton = root.querySelector('[data-conveyor-pause]');
+  let offset = 0, loop = 0, frame = 0, last = 0, visible = false, drag;
   const measure = () => { loop = clones[0].getBoundingClientRect().left - originals[0].getBoundingClientRect().left; paint(); };
   const paint = () => { if (loop) offset = ((offset % loop) + loop) % loop; track.style.transform = `translate3d(${-offset}px,0,0)`; };
   const stop = () => { cancelAnimationFrame(frame); frame = 0; last = 0; };
   const tick = time => { if (last) offset += Math.min(time-last, 50) * .039; last = time; paint(); frame = requestAnimationFrame(tick); };
   const sync = () => {
-    if (pauseButton) { pauseButton.textContent = paused ? 'Продолжить' : 'Пауза'; pauseButton.setAttribute('aria-pressed', String(paused)); }
     stop();
-    if (visible && !paused && !drag && !document.hidden && !dialog?.open && !reducedMotion.matches) frame = requestAnimationFrame(tick);
+    if (visible && !drag && !document.hidden && !dialog?.open && !reducedMotion.matches) frame = requestAnimationFrame(tick);
   };
-  const step = direction => { offset += direction * loop / originals.length; paused = true; paint(); sync(); };
-  root.querySelector('[data-conveyor-prev]')?.addEventListener('click', () => step(-1));
-  root.querySelector('[data-conveyor-next]')?.addEventListener('click', () => step(1));
-  pauseButton?.addEventListener('click', () => { paused = !paused; sync(); });
+  const step = direction => { offset += direction * loop / originals.length; paint(); sync(); };
   viewport.addEventListener('keydown', event => { if (['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); step(event.key === 'ArrowRight' ? 1 : -1); } });
   viewport.addEventListener('dragstart', event => event.preventDefault());
   viewport.addEventListener('pointerdown', event => {
     if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
     drag = { id:event.pointerId, x:event.clientX, y:event.clientY, start:offset };
-    stop();
   });
   viewport.addEventListener('pointermove', event => {
     if (!drag || event.pointerId !== drag.id) return;
@@ -123,7 +117,6 @@ document.querySelectorAll('[data-conveyor]').forEach(root => {
     if (drag.horizontal) {
       if (Math.abs(distance) >= 36) offset = drag.start + (distance < 0 ? loop / originals.length : -loop / originals.length);
       else offset = drag.start;
-      paused = true;
       paint();
     }
     drag = undefined;
