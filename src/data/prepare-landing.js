@@ -26,4 +26,5 @@ export const prepareLandingMarkup = (markup) => markerReplacements
   .replace(/\s*<a class="transition-rail" href="#facts"><span class="lot-container">[\s\S]*?<\/span><\/a>/, '')
   .replace('Документы дают факты. Визуализации показывают потенциал. ↓', 'Посмотреть возможный сценарий развития ↓')
   .replace(/\s*<a class="section-next" href="#location">[\s\S]*?<\/a>/, '')
-  .replace(/\s*<a class="section-next" href="#actual">[\s\S]*?<\/a>/, '');
+  .replace(/\s*<a class="section-next" href="#actual">[\s\S]*?<\/a>/, '')
+  .replaceAll('Возможный архитектный сценарий', 'Возможный архитектурный сценарий');
