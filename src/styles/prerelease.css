@@ -120,7 +120,7 @@
 .lot-text-link{border-bottom:2px solid #a6573c}
 .lot-hero .lot-text-link{border-color:#a6573c}
 
-.copy-accent{color:#985038}
+.copy-accent{color:#985038;font-weight:700}
 .lot-section--ink .copy-accent{color:#e1a88e}
 .lot-section--ink .lot-kicker,.lot-section--ink .fact-status article>span,.lot-section--ink .copy-accent{color:#dcc9ac}
 #facts .lot-kicker{color:#d3a38c}
