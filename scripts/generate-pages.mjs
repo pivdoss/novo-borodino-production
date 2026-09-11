@@ -20,7 +20,7 @@ const documentMarkup = ({ title, description, route, body, robots = siteIndexabl
 <html lang="ru"><head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#13382c"><meta name="robots" content="${robots}"><meta name="author" content="Новое Бородино"><meta name="application-name" content="Новое Бородино">
-  <link rel="icon" href="${siteBase}favicon-32.png" type="image/png" sizes="32x32"><link rel="icon" href="${siteBase}favicon-16.png" type="image/png" sizes="16x16"><link rel="icon" href="${siteBase}favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="${siteBase}apple-touch-icon.png" sizes="180x180"><link rel="manifest" href="${siteBase}site.webmanifest">
+  <link rel="icon" href="${siteBase}favicon-cannon-v3-48.png" type="image/png" sizes="48x48"><link rel="icon" href="${siteBase}favicon-cannon-v3-32.png" type="image/png" sizes="32x32"><link rel="icon" href="${siteBase}favicon-cannon-v3-16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="${siteBase}apple-touch-cannon-v3.png" sizes="180x180"><link rel="manifest" href="${siteBase}site.webmanifest">
   <link rel="alternate" hreflang="ru" href="${absoluteUrl(route)}">
   ${route === '/' ? '<link rel="preload" as="image" href="/images/hero-vivid.webp" type="image/webp" fetchpriority="high">' : ''}
   <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">
