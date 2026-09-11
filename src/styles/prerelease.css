@@ -140,8 +140,8 @@
 .lot-concept__full{cursor:zoom-in}
 .lot-concept__full:hover img{filter:saturate(1.06) contrast(1.03)}
 .lot-concept__full img{transition:filter .2s ease}
-.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.40),rgba(12,25,19,.16) 50%,rgba(12,25,19,.01))}
-@media(max-width:760px){.lot-hero__lead{font-size:19px}.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.48),rgba(12,25,19,.14))}}
+.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.30),rgba(12,25,19,.10) 50%,rgba(12,25,19,0))}
+@media(max-width:760px){.lot-hero__lead{font-size:19px}.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.38),rgba(12,25,19,.08))}}
 .lot-brand img{display:block;width:180px;height:auto;max-height:52px;object-fit:contain}
 @media(max-width:760px){.lot-brand img{width:150px;max-height:42px}}
 .lot-header{background:#202b29;color:#f5f3ed;border-bottom-color:#485750}
