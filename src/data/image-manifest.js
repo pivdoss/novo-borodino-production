@@ -7,7 +7,7 @@ export default {
     "width": 1980,
     "height": 1106
   },
-  "concept-scheme-v2": {
+  "concept-scheme-v3": {
     "width": 1980,
     "height": 1106
   },
