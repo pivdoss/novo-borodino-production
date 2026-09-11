@@ -5,7 +5,7 @@ export const investorHero = `
   <img src="/images/hero-vivid.webp" alt="Земельный массив Новое Бородино с высоты" width="1280" height="960" fetchpriority="high">
   <div class="lot-hero__shade"></div><div class="lot-container lot-hero__content">
     <p class="lot-kicker">Земельный актив · Можайский район</p>
-    <h1 id="page-title">Большой проект не собирают<br> <em>из маленьких решений.</em></h1>
+    <h1 id="page-title"><span class="lot-hero__title-accent">Большой проект не собирают</span><br> <em>из маленьких решений.</em></h1>
     <p class="lot-hero__lead">Земельный массив 6,2 га в Новом Бородино: 71 размежёванный участок и 1 га внутренних дорог продаются единым лотом от собственника.</p>
     <div class="lot-hero__offer"><strong>55 млн ₽</strong><span>единый лот<br>105 км от МКАД · 30 км до Можайска</span></div>
     <div class="lot-actions"><button class="lot-button lot-button--accent" type="button" data-contact-choice-open data-contact-context="hero" data-event="presentation_request">Наши контакты ↗</button><a class="lot-text-link lot-text-link--light" href="#asset">Понять состав лота ↓</a></div>
