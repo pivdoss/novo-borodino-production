@@ -8,6 +8,9 @@
 .lot-hero__content{padding-block:76px 56px}
 .lot-hero h1{font-size:clamp(46px,4.7vw,82px);max-width:1120px}
 .lot-hero h1 em{white-space:normal}
+.lot-hero h1{font-weight:500;text-shadow:0 2px 18px rgba(4,14,9,.72)}
+.lot-hero h1 em{color:#f2dcc0;text-shadow:0 2px 18px rgba(4,14,9,.72)}
+.lot-hero__lead{font-size:clamp(21px,1.45vw,24px);font-weight:600;line-height:1.5;text-shadow:0 2px 12px rgba(4,14,9,.72)}
 .lot-hero__cta-note{max-width:620px;font-size:15px;line-height:1.55;color:#cfd5cb}
 .lot-header__inner{position:relative;gap:22px}
 .lot-nav{position:absolute;left:50%;transform:translateX(-50%);gap:22px}
@@ -134,5 +137,5 @@
 .lot-concept__full{cursor:zoom-in}
 .lot-concept__full:hover img{filter:saturate(1.06) contrast(1.03)}
 .lot-concept__full img{transition:filter .2s ease}
-.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.48),rgba(12,25,19,.22) 50%,rgba(12,25,19,.02))}
-@media(max-width:760px){.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.54),rgba(12,25,19,.18))}}
+.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.66),rgba(12,25,19,.38) 52%,rgba(12,25,19,.06))}
+@media(max-width:760px){.lot-hero__lead{font-size:19px}.lot-hero__shade{background:linear-gradient(90deg,rgba(12,25,19,.7),rgba(12,25,19,.3))}}
