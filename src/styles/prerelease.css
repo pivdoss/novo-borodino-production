@@ -6,7 +6,7 @@
 .functional .lot-heading>p{max-width:640px;padding-top:46px;font-size:clamp(19px,1.35vw,22px);line-height:1.48}
 .lot-hero{min-height:min(880px,100svh)}
 .lot-hero__content{padding-block:76px 56px}
-.lot-hero h1{font-size:clamp(54px,5.6vw,92px);max-width:880px;line-height:.99;letter-spacing:-.055em;font-weight:500;text-shadow:0 3px 24px rgba(4,14,9,.86)}
+.lot-hero h1{font-size:clamp(54px,5.6vw,92px);max-width:880px;line-height:1.04;letter-spacing:-.025em;font-weight:500;text-shadow:0 3px 24px rgba(4,14,9,.86)}
 .lot-hero h1 em{display:block;color:#e39a74!important;font-weight:500;white-space:normal;text-shadow:0 3px 24px rgba(4,14,9,.9)}
 .lot-hero__title-accent{display:block;color:#fff;font-weight:700;text-shadow:0 3px 24px rgba(4,14,9,.9)}
 .lot-hero__lead{font-size:clamp(21px,1.45vw,24px);font-weight:600;line-height:1.5;text-shadow:0 2px 12px rgba(4,14,9,.72)}
