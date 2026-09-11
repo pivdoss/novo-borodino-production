@@ -7,7 +7,7 @@ const presentation = withOfferMessage(contacts.whatsappUrl, 'презентац�
 const materials = withOfferMessage(contacts.whatsappUrl, 'материалы земельного массива 6,2 га в «Новом Бородино»');
 const viewing = withOfferMessage(contacts.whatsappUrl, 'просмотр земельного массива 6,2 га в «Новом Бородино»');
 const nav = '<a href="#asset">Об объекте</a><a href="#concept">Схема</a><a href="#facts">Документы</a><a href="#location">Локация</a>';
-const brand = '<span>НБ</span><b>Новое<br>Бородино</b>';
+const brand = '<img src="/images/logo-novoe-borodino.png" alt="Новое Бородино" width="180" height="43">';
 const external = 'target="_blank" rel="noopener noreferrer"';
 const asset = (path) => `${process.env.SITE_BASE || '/'}images/${path}`;
 const photo = (src, alt, width = 1800, height = 1350) => {
