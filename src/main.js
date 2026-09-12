@@ -7,18 +7,17 @@ import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Reveal timing mirrors the reference: 10% visibility activates each group,
-// headings enter laterally, descriptions rise, and media alternates direction.
+// Reveal timing mirrors the reference: 10% visibility activates each group.
+// Operational blocks and all media remain static so motion never interferes.
 if (!reducedMotion.matches) {
   const revealGroups = [
     ['.lot-heading .lot-kicker, .lot-heading h2', 'title'],
-    ['.lot-heading > p, .asset-metrics, .fact-status, .engineering-grid, .materials-list, .lot-chapters__list, .lot-faq, .contact-steps', 'copy'],
-    ['.lot-concept__full, .territory-slider, .render-conveyor, .actual-slider, .lot-map, .contact-card', 'media'],
+    ['.lot-heading > p, .asset-metrics, .engineering-grid, .materials-list, .lot-chapters__list, .lot-faq, .contact-steps', 'copy'],
   ];
   const targets = new Set();
-  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach((element, index) => {
-    if (element.closest('.lot-hero')) return;
-    element.dataset.reveal = type === 'media' ? `media-${index % 2 ? 'right' : 'left'}` : type;
+  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach(element => {
+    if (element.closest('.lot-hero') || element.closest('#facts')) return;
+    element.dataset.reveal = type;
     targets.add(element);
   }));
   const heroTargets = [...document.querySelectorAll('.lot-hero__content > *')];
