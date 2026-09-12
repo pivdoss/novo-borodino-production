@@ -6,6 +6,35 @@ import { initAnalyticsConsent, reachMetrikaGoal } from './analytics.js';
 import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Editorial reveal rhythm: text arrives first, media follows, with no motion
+// for visitors who have requested reduced motion in their system settings.
+if (!reducedMotion.matches) {
+  const revealGroups = [
+    ['.lot-heading .lot-kicker, .lot-heading h2, .lot-heading > p', 'copy'],
+    ['.asset-metrics > div, .fact-status article, .engineering-grid article, .materials-list li, .lot-chapters__list li, .lot-faq details, .contact-steps li', 'copy'],
+    ['.lot-concept__full, .territory-slider, .render-conveyor, .actual-slider, .lot-map, .contact-card', 'media'],
+  ];
+  const targets = [];
+  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach((element, index) => {
+    if (element.closest('.lot-hero')) return;
+    element.dataset.reveal = type;
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 90}ms`);
+    targets.push(element);
+  }));
+  document.querySelectorAll('.lot-hero__content > *').forEach((element, index) => {
+    element.dataset.reveal = 'hero';
+    element.style.setProperty('--reveal-delay', `${120 + index * 110}ms`);
+    targets.push(element);
+  });
+  document.documentElement.classList.add('motion-ready');
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-revealed');
+    observer.unobserve(entry.target);
+  }), { threshold: .16, rootMargin: '0px 0px -8%' });
+  targets.forEach(element => observer.observe(element));
+}
 const dialog = document.querySelector('[data-lightbox-dialog]');
 let restoreFocus;
 const openImage = (image, caption, trigger) => {
