@@ -147,10 +147,10 @@
 .lot-header__cta{border-color:#8a998d;color:#f5f3ed}
 .lot-mobile-nav{background:#202b29;color:#f5f3ed}
 
-/* Scroll-led editorial reveals: adapted to the site's restrained visual language. */
-html.motion-ready [data-reveal]{opacity:0;transform:translate3d(0,14px,0);filter:blur(1px);transition:opacity .16s cubic-bezier(.22,.61,.36,1),transform .16s cubic-bezier(.22,.61,.36,1),filter .16s ease;will-change:opacity,transform,filter}
-html.motion-ready [data-reveal="media"]{transform:scale(.965);filter:brightness(.92) saturate(.84)}
-html.motion-ready [data-reveal="hero"]{transform:translate3d(0,22px,0);filter:blur(2px)}
-html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translate3d(0,0,0);filter:none}
+/* Brief, non-blocking reveals using only compositor-friendly properties. */
+html.motion-ready [data-reveal]{opacity:.92;transform:translate3d(0,6px,0);transition:opacity .18s ease-out,transform .18s ease-out;transition-delay:var(--reveal-delay,0ms)}
+html.motion-ready [data-reveal="media"]{transform:scale(.992)}
+html.motion-ready [data-reveal="hero"]{transform:translate3d(0,8px,0)}
+html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translate3d(0,0,0)}
 html.motion-ready [data-reveal="media"].is-revealed{transform:scale(1)}
-@media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal]{opacity:1;transform:none;filter:none;transition:none}}
+@media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}

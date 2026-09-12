@@ -7,12 +7,11 @@ import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Editorial reveal rhythm: each element completes before the next one starts,
-// with no motion for visitors who have requested reduced motion.
+// Subtle reveal motion is applied only to meaningful groups, so content never
+// waits behind a long animation queue. Reduced-motion visitors see no motion.
 if (!reducedMotion.matches) {
   const revealGroups = [
-    ['.lot-heading .lot-kicker, .lot-heading h2, .lot-heading > p', 'copy'],
-    ['.asset-metrics > div, .fact-status article, .engineering-grid article, .materials-list li, .lot-chapters__list li, .lot-faq details, .contact-steps li', 'copy'],
+    ['.lot-heading', 'copy'],
     ['.lot-concept__full, .territory-slider, .render-conveyor, .actual-slider, .lot-map, .contact-card', 'media'],
   ];
   const targets = new Set();
@@ -24,31 +23,16 @@ if (!reducedMotion.matches) {
   const heroTargets = [...document.querySelectorAll('.lot-hero__content > *')];
   heroTargets.forEach(element => {
     element.dataset.reveal = 'hero';
-    targets.add(element);
   });
   document.documentElement.classList.add('motion-ready');
 
-  const revealElement = element => new Promise(resolve => {
-    let complete = false;
-    const finish = () => {
-      if (complete) return;
-      complete = true;
-      element.removeEventListener('transitionend', onTransitionEnd);
-      resolve();
-    };
-    const onTransitionEnd = event => {
-      if (event.target === element && event.propertyName === 'opacity') finish();
-    };
-    element.addEventListener('transitionend', onTransitionEnd);
+  const revealElement = (element, index = 0) => {
+    element.style.setProperty('--reveal-delay', `${index * 24}ms`);
     element.classList.add('is-revealed');
-    window.setTimeout(finish, 190);
-  });
-  const revealSequence = async elements => {
-    for (const element of elements) await revealElement(element);
   };
 
   const sectionTargets = new Map();
-  [...targets].filter(element => !heroTargets.includes(element)).forEach(element => {
+  targets.forEach(element => {
     const section = element.closest('section') || element;
     const sequence = sectionTargets.get(section) || [];
     sequence.push(element);
@@ -62,10 +46,10 @@ if (!reducedMotion.matches) {
     if (!entry.isIntersecting || entry.target.dataset.revealStarted) return;
     entry.target.dataset.revealStarted = 'true';
     observer.unobserve(entry.target);
-    revealSequence(sectionTargets.get(entry.target));
-  }), { threshold: .13, rootMargin: '0px 0px -5%' });
+    sectionTargets.get(entry.target).forEach(revealElement);
+  }), { threshold: .04, rootMargin: '0px 0px -2%' });
   sectionTargets.forEach((_, section) => observer.observe(section));
-  window.requestAnimationFrame(() => revealSequence(heroTargets));
+  window.requestAnimationFrame(() => heroTargets.forEach(revealElement));
 }
 const dialog = document.querySelector('[data-lightbox-dialog]');
 let restoreFocus;
