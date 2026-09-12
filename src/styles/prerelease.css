@@ -148,9 +148,9 @@
 .lot-mobile-nav{background:#202b29;color:#f5f3ed}
 
 /* Brief, non-blocking reveals using only compositor-friendly properties. */
-html.motion-ready [data-reveal]{opacity:.92;transform:translate3d(0,6px,0);transition:opacity .18s ease-out,transform .18s ease-out;transition-delay:var(--reveal-delay,0ms)}
-html.motion-ready [data-reveal="media"]{transform:scale(.992)}
-html.motion-ready [data-reveal="hero"]{transform:translate3d(0,8px,0)}
+html.motion-ready [data-reveal]{opacity:.84;transform:translate3d(0,10px,0);transition:opacity .32s cubic-bezier(.22,.61,.36,1),transform .32s cubic-bezier(.22,.61,.36,1);transition-delay:var(--reveal-delay,0ms)}
+html.motion-ready [data-reveal="media"]{transform:scale(.985)}
+html.motion-ready [data-reveal="hero"]{transform:translate3d(0,12px,0)}
 html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translate3d(0,0,0)}
 html.motion-ready [data-reveal="media"].is-revealed{transform:scale(1)}
 @media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}

@@ -27,28 +27,15 @@ if (!reducedMotion.matches) {
   document.documentElement.classList.add('motion-ready');
 
   const revealElement = (element, index = 0) => {
-    element.style.setProperty('--reveal-delay', `${index * 24}ms`);
+    element.style.setProperty('--reveal-delay', `${index * 45}ms`);
     element.classList.add('is-revealed');
   };
-
-  const sectionTargets = new Map();
-  targets.forEach(element => {
-    const section = element.closest('section') || element;
-    const sequence = sectionTargets.get(section) || [];
-    sequence.push(element);
-    sectionTargets.set(section, sequence);
-  });
-  sectionTargets.forEach(sequence => sequence.sort((first, second) => {
-    const position = first.compareDocumentPosition(second);
-    return position & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-  }));
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting || entry.target.dataset.revealStarted) return;
-    entry.target.dataset.revealStarted = 'true';
+    if (!entry.isIntersecting) return;
     observer.unobserve(entry.target);
-    sectionTargets.get(entry.target).forEach(revealElement);
-  }), { threshold: .04, rootMargin: '0px 0px -2%' });
-  sectionTargets.forEach((_, section) => observer.observe(section));
+    revealElement(entry.target);
+  }), { threshold: .1, rootMargin: '0px 0px -1%' });
+  targets.forEach(element => observer.observe(element));
   window.requestAnimationFrame(() => heroTargets.forEach(revealElement));
 }
 const dialog = document.querySelector('[data-lightbox-dialog]');
