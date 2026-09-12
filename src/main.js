@@ -19,12 +19,12 @@ if (!reducedMotion.matches) {
   revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach((element, index) => {
     if (element.closest('.lot-hero')) return;
     element.dataset.reveal = type;
-    element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 90}ms`);
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 45}ms`);
     targets.push(element);
   }));
   document.querySelectorAll('.lot-hero__content > *').forEach((element, index) => {
     element.dataset.reveal = 'hero';
-    element.style.setProperty('--reveal-delay', `${120 + index * 110}ms`);
+    element.style.setProperty('--reveal-delay', `${60 + index * 60}ms`);
     targets.push(element);
   });
   document.documentElement.classList.add('motion-ready');
