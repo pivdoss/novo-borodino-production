@@ -12,8 +12,8 @@ assert(!/79855507679|EKATERINAXAB|Екатерина/i.test(publicHtml),'outdate
 for(const expected of ['+7 903 777-17-26','https://wa.me/79037771726','https://t.me/KPNovoeborodino','https://max.ru/u/f9LHodD0cOIKyq_lGjltM2c8n8brktf8TcPF8ScEJBo2TlSHtoIMWxoL8Vc'])assert(publicHtml.includes(expected),`missing current contact: ${expected}`);
 const resources=new Set([...html.matchAll(/\/images\/[a-zA-Z0-9_./-]+\.webp/g)].map(m=>m[0]));
 for(const resource of resources)await fs.access('dist'+resource);
-assert.equal([...resources].filter(p=>/^\/images\/actual-gallery\//.test(p)).length,13);
+assert.equal([...resources].filter(p=>/^\/images\/actual-gallery\//.test(p)).length,12);
 assert.equal([...resources].filter(p=>/^\/images\/renders\//.test(p)).length,15);
 for(const [,tag] of html.matchAll(/(<img\b[^>]+>)/g))assert(/alt=/.test(tag),'image missing alt');
 const total=(await Promise.all([...resources].map(async p=>(await fs.stat('dist'+p)).size))).reduce((a,b)=>a+b,0);
-console.log(`Page checks passed: ${ids.length} IDs, ${resources.size} image resources, ${(total/1024/1024).toFixed(2)} MiB including responsive alternatives. 13 photos + 15 renders.`);
+console.log(`Page checks passed: ${ids.length} IDs, ${resources.size} image resources, ${(total/1024/1024).toFixed(2)} MiB including responsive alternatives. 12 photos + 15 renders.`);
