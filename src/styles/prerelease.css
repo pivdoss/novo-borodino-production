@@ -148,7 +148,7 @@
 .lot-mobile-nav{background:#202b29;color:#f5f3ed}
 
 /* Scroll-led editorial reveals: adapted to the site's restrained visual language. */
-html.motion-ready [data-reveal]{opacity:0;transform:translate3d(0,22px,0);filter:blur(2px);transition:opacity .28s cubic-bezier(.22,.61,.36,1),transform .34s cubic-bezier(.22,.61,.36,1),filter .26s ease;will-change:opacity,transform,filter}
+html.motion-ready [data-reveal]{opacity:0;transform:translate3d(0,14px,0);filter:blur(1px);transition:opacity .16s cubic-bezier(.22,.61,.36,1),transform .16s cubic-bezier(.22,.61,.36,1),filter .16s ease;will-change:opacity,transform,filter}
 html.motion-ready [data-reveal="media"]{transform:scale(.965);filter:brightness(.92) saturate(.84)}
 html.motion-ready [data-reveal="hero"]{transform:translate3d(0,22px,0);filter:blur(2px)}
 html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translate3d(0,0,0);filter:none}

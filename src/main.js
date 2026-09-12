@@ -41,7 +41,7 @@ if (!reducedMotion.matches) {
     };
     element.addEventListener('transitionend', onTransitionEnd);
     element.classList.add('is-revealed');
-    window.setTimeout(finish, 360);
+    window.setTimeout(finish, 190);
   });
   const revealSequence = async elements => {
     for (const element of elements) await revealElement(element);
