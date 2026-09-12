@@ -7,17 +7,18 @@ import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Subtle reveal motion is applied only to meaningful groups, so content never
-// waits behind a long animation queue. Reduced-motion visitors see no motion.
+// Reveal timing mirrors the reference: 10% visibility activates each group,
+// headings enter laterally, descriptions rise, and media alternates direction.
 if (!reducedMotion.matches) {
   const revealGroups = [
-    ['.lot-heading', 'copy'],
+    ['.lot-heading .lot-kicker, .lot-heading h2', 'title'],
+    ['.lot-heading > p, .asset-metrics, .fact-status, .engineering-grid, .materials-list, .lot-chapters__list, .lot-faq, .contact-steps', 'copy'],
     ['.lot-concept__full, .territory-slider, .render-conveyor, .actual-slider, .lot-map, .contact-card', 'media'],
   ];
   const targets = new Set();
-  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach(element => {
+  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach((element, index) => {
     if (element.closest('.lot-hero')) return;
-    element.dataset.reveal = type;
+    element.dataset.reveal = type === 'media' ? `media-${index % 2 ? 'right' : 'left'}` : type;
     targets.add(element);
   }));
   const heroTargets = [...document.querySelectorAll('.lot-hero__content > *')];
@@ -27,14 +28,14 @@ if (!reducedMotion.matches) {
   document.documentElement.classList.add('motion-ready');
 
   const revealElement = (element, index = 0) => {
-    element.style.setProperty('--reveal-delay', `${index * 45}ms`);
+    element.style.setProperty('--reveal-delay', `${index * 80}ms`);
     element.classList.add('is-revealed');
   };
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     observer.unobserve(entry.target);
     revealElement(entry.target);
-  }), { threshold: .1, rootMargin: '0px 0px -1%' });
+  }), { threshold: .1, rootMargin: '0px' });
   targets.forEach(element => observer.observe(element));
   window.requestAnimationFrame(() => heroTargets.forEach(revealElement));
 }
