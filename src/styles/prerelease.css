@@ -146,11 +146,3 @@
 .lot-header__phone small{color:#c9d0c6}
 .lot-header__cta{border-color:#8a998d;color:#f5f3ed}
 .lot-mobile-nav{background:#202b29;color:#f5f3ed}
-
-/* Reference motion: lateral titles/media, rising copy and a quick hero intro. */
-html.motion-ready [data-reveal]{transition-delay:var(--reveal-delay,0ms)}
-html.motion-ready [data-reveal="title"]{transform:translate3d(-15%,0,0);transition:transform 1.5s ease}
-html.motion-ready [data-reveal="copy"]{opacity:0;transform:translate3d(0,100%,0);transition:opacity 1.5s ease,transform 1.5s ease}
-html.motion-ready [data-reveal="hero"]{opacity:0;transform:translate3d(-12%,0,0);transition:opacity .5s ease,transform .5s ease;transition-delay:var(--reveal-delay,0ms)}
-html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translate3d(0,0,0)}
-@media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}

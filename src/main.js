@@ -7,37 +7,6 @@ import { contacts, withMessage } from './data/contacts.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Reveal timing mirrors the reference: 10% visibility activates each group.
-// Operational blocks and all media remain static so motion never interferes.
-if (!reducedMotion.matches) {
-  const revealGroups = [
-    ['.lot-heading .lot-kicker, .lot-heading h2', 'title'],
-    ['.lot-heading > p, .asset-metrics, .engineering-grid, .materials-list, .lot-chapters__list, .lot-faq, .contact-steps', 'copy'],
-  ];
-  const targets = new Set();
-  revealGroups.forEach(([selector, type]) => document.querySelectorAll(selector).forEach(element => {
-    if (element.closest('.lot-hero') || element.closest('#facts')) return;
-    element.dataset.reveal = type;
-    targets.add(element);
-  }));
-  const heroTargets = [...document.querySelectorAll('.lot-hero__content > *')];
-  heroTargets.forEach(element => {
-    element.dataset.reveal = 'hero';
-  });
-  document.documentElement.classList.add('motion-ready');
-
-  const revealElement = (element, index = 0) => {
-    element.style.setProperty('--reveal-delay', `${index * 80}ms`);
-    element.classList.add('is-revealed');
-  };
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    observer.unobserve(entry.target);
-    revealElement(entry.target);
-  }), { threshold: .1, rootMargin: '0px' });
-  targets.forEach(element => observer.observe(element));
-  window.requestAnimationFrame(() => heroTargets.forEach(revealElement));
-}
 const dialog = document.querySelector('[data-lightbox-dialog]');
 let restoreFocus;
 const openImage = (image, caption, trigger) => {
